@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj": {}
+    "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj": {}
   },
   "projects": {
-    "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj": {
+    "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
+        "projectUniqueName": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
         "projectName": "ccsb",
-        "projectPath": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
-        "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\obj\\",
+        "projectPath": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
+        "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+        "outputPath": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

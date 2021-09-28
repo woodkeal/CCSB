@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = ccsb
-build_property.ProjectDir = C:\repos\CCSB\Applicatie\ccsb\ccsb\
+build_property.ProjectDir = D:\CCSB\Applicatie\ccsb\ccsb\
