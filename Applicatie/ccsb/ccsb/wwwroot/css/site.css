@@ -1,15 +1,11 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
+<style >
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+</style >
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -62,10 +58,73 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+
+.social a {
+    padding: 0px 5px;
+}
+
+.ion-social-facebook{
+    padding-left: 0px;
+}
+
+
+/* Menu
+-------------------------------------------------- */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.menu-logo{
+    height: 150px;
+}
+.navbar ul li a {
+    color: #8BDBF5;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.text-hover-size:hover {
+    font-size: 35px;
+}
+
+#mijn-voertuigen {
+    color: white;
+    background-color: #8BDBF5;
+    border-radius: 15px;
+    padding: 5px 10px;
+    border: 2px solid black;
+}
+
+#mijn-voertuigen:hover {
+    background-color: #5abcdb;
+
+}
+
+.navbar ul li{
+    display: flex;
+}
+
+.navbar-nav{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-caravan{
+    height: 150px;
+}
+.navbar{
+    padding: 0px;
+}
+
+.nav-item{
+    width: 300px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
