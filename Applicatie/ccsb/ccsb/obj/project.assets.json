@@ -736,19 +736,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tim\\.nuget\\packages\\": {}
+    "C:\\Users\\dylan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
+      "projectUniqueName": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
       "projectName": "ccsb",
-      "projectPath": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
-      "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\obj\\",
+      "projectPath": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\ccsb.csproj",
+      "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+      "outputPath": "D:\\CCSB\\Applicatie\\ccsb\\ccsb\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -797,16 +802,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\repos\\CCSB\\Applicatie\\ccsb\\ccsb\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
