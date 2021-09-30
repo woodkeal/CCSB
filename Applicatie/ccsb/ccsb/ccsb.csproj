@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\Images\" />
+    <Folder Include="wwwroot\lib\videos\" />
   </ItemGroup>
 
 </Project>

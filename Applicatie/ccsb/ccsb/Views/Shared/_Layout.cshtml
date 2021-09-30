@@ -14,7 +14,7 @@
 <body>
     <!--#region Header-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
                 <a asp-controller="Home" asp-action="Index">
                     <img class="menu-logo" src="~/lib/Images/Logo.png" />
@@ -37,12 +37,8 @@
         </nav>
     </header>
     <!--#endregion-->
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
+    @RenderBody()
 
     <!--#region Footer-->
     <footer>
@@ -81,6 +77,11 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!--    <div class="container">
+        <main role="main" class="pb-3">
+        </main>
+    </div>-->
     <!-- #endregion -->
 </body>
 </html>
