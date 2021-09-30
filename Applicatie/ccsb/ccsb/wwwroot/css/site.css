@@ -163,9 +163,3 @@ a.navbar-brand {
     padding: 40px;
     display: flex;
 }
-
-.box-text button{
-    max-height: 50px;
-    font-size: 20px;
-    bottom: 1px;
-}
