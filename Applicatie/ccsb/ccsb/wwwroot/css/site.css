@@ -154,6 +154,7 @@ a.navbar-brand {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0px 200px 0px 0px;
 }
 
 .box-text {
@@ -166,6 +167,17 @@ a.navbar-brand {
 
 .box-text button{
     max-height: 50px;
-    font-size: 20px;
-    bottom: 1px;
+    width: 500px;
+    font-size: 35px;
+    vertical-align: bottom;
+    background-color: #8BDBF5;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-self: end;
+    margin-right: 50px;
+}
+
+.box-text button:hover{
+    background-color: #5abcdb;
 }
