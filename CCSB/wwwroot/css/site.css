@@ -172,9 +172,10 @@ a.navbar-brand {
     color: white;
     font-size: 60px;
     font-family: 'Bebas Neue', cursive;
+    transform: translateX(50px);
 }
 
-.video-content-box button{
+.video-content-box button {
     max-height: 50px;
     font-size: 35px;
     background-color: #8BDBF5;
@@ -187,8 +188,12 @@ a.navbar-brand {
     align-items: end;
     justify-content: center;
     border: solid 1px black;
+    width: 580px;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', cursive;
 }
 
-.box-text button:hover {
+.video-content-box button:hover{
     background-color: #5abcdb;
+    width: 580px;
 }
