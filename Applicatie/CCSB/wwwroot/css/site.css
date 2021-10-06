@@ -197,3 +197,54 @@ a.navbar-brand {
     background-color: #5abcdb;
     width: 580px;
 }
+
+.title-header2 {
+    color: #5ABCDB;
+    font-size: 150px;
+    font-family: 'Bebas Neue', cursive;
+    padding-top: 200px;
+    line-height: 150px;
+}
+
+.text-header2 {
+    width: 830px;
+    font-size: 25px;
+    padding-bottom: 200px;
+    overflow: hidden;
+}
+
+.container{
+    max-width: 1500px;
+}
+
+.title-header2 hr {
+    border: 0;
+    height: 5px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 255), rgb(90,188,219), rgba(255, 255, 255, 255));
+    width: 300px;
+    margin-left: 0;
+}
+.img-header2 {
+    margin-right: 0;
+    margin-top: 300px; /**/
+    margin-left: 60px;
+    border-radius: 20px;
+}
+
+.img-header2 img{
+    border-radius: 20px;
+}
+.main-content{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    background-color: lightslategray;
+    color: white;
+    padding: 20px 0px;
+}
+.icon-table1 img{
+    height: 100px;
+    width: 100px;
+}
