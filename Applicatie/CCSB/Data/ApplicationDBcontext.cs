@@ -14,7 +14,12 @@ namespace CCSB.Data
 		public ApplicationDBcontext(DbContextOptions<ApplicationDBcontext> options) : base(options)
 		{
 
-		}	
+		}
+
+        public DbSet<Appointments> Appointments { get; set; }
+		public DbSet<CustomerDetails> CustomerDetails { get; set; }
+		public DbSet<Vehicles> Vehicles { get; set; }
+
 	}
 
 }
