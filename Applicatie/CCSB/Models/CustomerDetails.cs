@@ -13,6 +13,5 @@ namespace CCSB.Models
         public string City { get; set; }
         public string BankAccount { get; set; }
         public string PostalCode { get; set; }
-
     }
 }
