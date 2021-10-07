@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace CCSB.Data
+namespace CCSB.Models
 {
 	public class ApplicationDBcontext : IdentityDbContext
 	{

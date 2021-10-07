@@ -7,11 +7,13 @@ namespace CCSB.Models
 {
     public class CustomerDetails
     {
+        public int CustomerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Insertion { get; set; }
         public string City { get; set; }
         public string BankAccount { get; set; }
         public string PostalCode { get; set; }
+        public string Email { get; set; }
     }
 }
