@@ -57,10 +57,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
 
 
 .social a {
@@ -239,11 +235,20 @@ a.navbar-brand {
     justify-content: center;
 }
 
-footer{
-    background-color: lightslategray;
-    color: white;
+footer {
+    color: #5ABCDB;
     padding: 20px 0px;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
+.hrFooter hr {
+    border: 0;
+    height: 5px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 255), rgb(90,188,219), rgba(255, 255, 255, 255));
+    width: 1800px;
+}
+
 .icon-table1 img, .icon-table2 img, .icon-table3 img, .icon-table4 img {
     width: 70px;
     margin-bottom: 30px;
