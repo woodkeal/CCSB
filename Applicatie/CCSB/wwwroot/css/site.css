@@ -57,6 +57,10 @@ html {
   min-height: 100%;
 }
 
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
 
 
 .social a {
@@ -194,7 +198,7 @@ a.navbar-brand {
     width: 580px;
 }
 
-.title-header2 {
+.title-header {
     color: #5ABCDB;
     font-size: 150px;
     font-family: 'Bebas Neue', cursive;
@@ -202,8 +206,7 @@ a.navbar-brand {
     line-height: 150px;
 }
 
-.text-header2 {
-    width: 830px;
+.text-header {
     font-size: 25px;
     padding-bottom: 200px;
     overflow: hidden;
@@ -213,43 +216,31 @@ a.navbar-brand {
     max-width: 1500px;
 }
 
-.title-header2 hr {
+.title-header hr {
     border: 0;
     height: 5px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 255), rgb(90,188,219), rgba(255, 255, 255, 255));
     width: 300px;
     margin-left: 0;
 }
-.img-header2 {
-    margin-right: 0;
-    margin-top: 300px; /**/
-    margin-left: 60px;
+
+.img-header img {
     border-radius: 20px;
+    width: 100%;
+    height: 450px;
 }
 
-.img-header2 img{
-    border-radius: 20px;
-}
 .main-content{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-footer {
-    color: #5ABCDB;
+footer{
+    background-color: lightslategray;
+    color: white;
     padding: 20px 0px;
-    position: relative;
-    height: 100%;
-    width: 100%;
 }
-.hrFooter hr {
-    border: 0;
-    height: 5px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 255), rgb(90,188,219), rgba(255, 255, 255, 255));
-    width: 1800px;
-}
-
-.icon-table1 img, .icon-table2 img, .icon-table3 img, .icon-table4 img {
+.icon-table img {
     width: 70px;
     margin-bottom: 30px;
 }
@@ -259,17 +250,21 @@ footer {
     justify-content: center;
 }
 
-.table1-text, .table2-text, .table3-text, .table4-text {
+.table-text {
     padding-bottom: 80px;
     font-size: 22px;
 }
 
-.table1-title, .table2-title, .table3-title, .table4-title {
+.table-title {
     font-size: 40px;
     padding-bottom: 20px;
     font-family: 'Bebas Neue', cursive;
 }
 
-.content-table1, content-table2, content-table3, content-table4{
+.content-table {
     padding: 20px;
+}
+
+.title-text {
+    width: 700px;
 }
