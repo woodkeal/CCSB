@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models
 {
-    public class Inlog
+    /* public class Inlog
     {
         [Key]
         public int KlantID { get; set; }
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
-    }
+    } */
 }
