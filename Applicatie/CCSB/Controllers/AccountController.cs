@@ -21,5 +21,10 @@ namespace CCSB.Models
         {
             return View();
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
