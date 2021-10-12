@@ -22,7 +22,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Index">Onze locatie</a>
+                            <a class="text-hover-size" asp-area="" asp-controller="Agenda" asp-action="Agenda">Agenda</a>
                         </li>
                         <li class="nav-item">
                             <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Index">Contact</a>
@@ -82,6 +82,15 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+    <script type="text/javascript" src="~/js/notify.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
     <!-- #endregion -->
 </body>
