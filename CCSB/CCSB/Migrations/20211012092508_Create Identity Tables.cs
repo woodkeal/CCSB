@@ -8,6 +8,20 @@ namespace CCSB.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Appointments",
+                columns: table => new
+                {
+                    Invoice = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Contract = table.Column<int>(type: "int", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Appointments", x => x.Invoice);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -44,6 +58,42 @@ namespace CCSB.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CustomerDetails",
+                columns: table => new
+                {
+                    CustomerID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Insertion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BankAccount = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerDetails", x => x.CustomerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vehicles",
+                columns: table => new
+                {
+                    LicensePlate = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Mileage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Length = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PowereSupply = table.Column<bool>(type: "bit", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Model = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KindOfVehicle = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehicles", x => x.LicensePlate);
                 });
 
             migrationBuilder.CreateTable(
@@ -195,6 +245,9 @@ namespace CCSB.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Appointments");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -208,6 +261,12 @@ namespace CCSB.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "CustomerDetails");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
