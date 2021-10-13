@@ -241,7 +241,7 @@ footer {
 }
 .hrFooter hr {
     height: 5px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 255), rgb(90,188,219), rgba(255, 255, 255, 255));
+    background-image: linear-gradient(m4 rgb(90,188,219), rgba(255, 255, 255, 255));
     width: 1600px;
     border-top: 0px;
     margin-bottom: 40px;
