@@ -1,8 +1,8 @@
 ﻿@model CCSB.Models.ViewModels.LoginViewModel
 
-<div class="container" id="con-inlog">
-    <h2>Login</h2>
-    <div class="row">
+<div class="container" id="reglog-style">
+    <h2 class="row justify-content-center font-weight-bolder">Login</h2>
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <section id="loginForm">
                 <form id="account" method="post" asp-action="Login" asp-controller="Account">
@@ -36,15 +36,15 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-10 offset-md-2">
-                            <input type="submit" value="Login" class="btn btn-succes">
+                    <div class="form-group">
+                        <div class="offset-md-2">
+                            <input type="submit" value="Login" id="button-layout">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-10 offset-md-2">
-                            <a asp-action="Register">Registreer</a>
+                        <div class="offset-md-2">
+                            <a asp-action="Register" id="button-layout">Registreer</a>
                         </div>
                     </div>
 
