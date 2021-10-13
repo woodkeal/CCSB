@@ -1,13 +1,9 @@
-﻿<h2>Agenda</h2>
-<div class="row">
+﻿<div class="d-flex justify-content-center">
     <div class="col-md-8">
-        <section id="loginForm">
-            <form id="account" method="post" asp-action="Agenda" asp-controller="">
-                <div id="calendar"></div>
-            </form>
-        </section>
+         <form id="agenda" method="post" asp-action="Agenda" asp-controller="">
+             <div id="calendar"></div>
+         </form>
     </div>
-  
 </div>
 @section Scripts{
                 <script src="~/js/script-custom-calendar.js"></script>
