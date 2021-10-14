@@ -5,16 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using CCSB.Utility;
 using CCSB.Models;
+using Microsoft.AspNetCore.Identity;
+using CCSB.Models.ViewModels;
 
 namespace CCSB.Models
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _db;
+        UserManager<ApplicationUser> _userManager;
+        SignInManager<ApplicationUser> _signInManager;
+        RoleManager<IdentityRole> _roleManager; 
 
-        public AccountController(ApplicationDbContext db)
+        public AccountController(ApplicationDbContext db,
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _db = db;
+            _roleManager = roleManager;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public IActionResult Login()
@@ -22,8 +33,45 @@ namespace CCSB.Models
             return View();
         }
 
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            if (!_roleManager.RoleExistsAsync(Helper.Admin).GetAwaiter().GetResult()) 
+            {
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
+                await _roleManager.CreateAsync(new IdentityRole(Helper.User));
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model) 
+        {
+
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser()
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    MiddleName = model.MiddleName,
+                    LastName = model.LastName
+                };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded) 
+                {
+                    await _userManager.AddToRoleAsync(user, model.RoleName);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
             return View();
         }
     }
