@@ -293,3 +293,42 @@ footer {
     border: solid 1px black;
     font-weight: bolder;
 }
+
+#button-layout:hover {
+    background-color: #5abcdb;
+    text-decoration: none;
+}
+
+#contact-header-img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+}
+
+.contact-header p {
+    color: white;
+    font-weight: bolder;
+    font-size: 8em;
+    z-index: 1;
+    justify-content: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.contact-box {
+    height: 500px;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    z-index: -1;
+}
+
+.contact-header {
+    position: relative;
+    height: 500px;
+    justify-content: center;
+    display: flex;
+    height: 500px;
+    align-items: center;
+}
