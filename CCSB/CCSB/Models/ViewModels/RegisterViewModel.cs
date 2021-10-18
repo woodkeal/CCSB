@@ -27,7 +27,7 @@ namespace CCSB.Models.ViewModels
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         [DataType(DataType.Password)]
         [DisplayName("Wachtwoord")]
-        [StringLength(100, ErrorMessage = "Het {0} moet minstens {1} tekens bevatten.",
+        [StringLength(10, ErrorMessage = "Het {0} moet minstens {1} tekens bevatten.",
          MinimumLength = 6)]
         public string Password { get; set; }
 
