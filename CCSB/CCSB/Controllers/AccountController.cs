@@ -7,6 +7,8 @@ using CCSB.Utility;
 using CCSB.Models;
 using Microsoft.AspNetCore.Identity;
 using CCSB.Models.ViewModels;
+using CCSB.services;
+u
 
 namespace CCSB.Models
 {
@@ -33,6 +35,22 @@ namespace CCSB.Models
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("index", "Home");
+                }
+                ModelState.AddModelError("", "inloggen mislukt");
+            }
+            return View(model);
+        }
+
         public async Task<IActionResult> Register()
         {
             if (!_roleManager.RoleExistsAsync(Helper.Admin).GetAwaiter().GetResult()) 
@@ -42,7 +60,6 @@ namespace CCSB.Models
             }
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model) 
@@ -65,14 +82,19 @@ namespace CCSB.Models
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
-
+                
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
             }
-
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
         }
     }
 }

@@ -2,7 +2,14 @@
 
 @if (signInManager.IsSignedIn(User))
 {
-
+    <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
+        <ul class="nav navbar-nav">
+            <li class="text-white nav-link">welkom @User.Identity.Name</li>
+            <li class="text-white">
+                <a class="text-white nav-link" href="javascrip:document.getElementById('logoutForm').submit()">uitloggen</a>
+            </li>
+        </ul>
+    </form>
 }
 
 else
