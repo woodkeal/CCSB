@@ -9,20 +9,21 @@ namespace CCSB.services
 {
     public class AppointmentService : IAppointmentService
     {
+        private readonly ApplicationDbContext _db;
         public List<AdminViewModel> GetAdminList()
         {
-            var admins = (from user in _db.Users
+            var Admins = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
                          join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
                          select new AdminViewModel
                          {
                              Id = user.Id,
                              Name = string.IsNullOrEmpty(user.MiddleName) ?
-                             user.FirstName + " " + user.Lastname :
-                             user.FirstName + " " + user.MiddleName + " " + user.Lastname
+                             user.FirstName + " " + user.LastName :
+                             user.FirstName + " " + user.MiddleName + " " + user.LastName
                          }
                          ).OrderBy(u => u.Name).ToList();
-            return admins;
+            return Admins;
         }
 
         public List<UserViewModel> GetUserList()
@@ -30,12 +31,12 @@ namespace CCSB.services
             var Users = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
                          join role in _db.Roles.Where(x => x.Name == Helper.User) on userRole.RoleId equals role.Id
-                         select new AdminViewModel
+                         select new UserViewModel
                          {
                              Id = user.Id,
                              Name = string.IsNullOrEmpty(user.MiddleName) ?
-                             user.FirstName + " " + user.Lastname :
-                             user.FirstName + " " + user.MiddleName + " " + user.Lastname
+                             user.FirstName + " " + user.LastName :
+                             user.FirstName + " " + user.MiddleName + " " + user.LastName
                          }
               ).OrderBy(u => u.Name).ToList();
             return Users;
