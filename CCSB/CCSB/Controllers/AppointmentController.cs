@@ -17,6 +17,7 @@ namespace CCSB.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.AdminList = _appointmentService.GetAdminList();
             return View();
         }
     }

@@ -1,0 +1,12 @@
+﻿<div class'="row">
+    <div class="container">
+        @if (User.IsInRole(CCSB.Utility.Helper.Admin))
+            {
+                <div class="form-group col-4" id="divAdminList">
+                    <label>Select admin</label>
+                    @Html.DropDownList("doctorId", new SelectList(ViewBag.AdminList, "Id", "Name"),
+                   new { @class = "form-control select2" })
+                </div>
+            }
+    </div>
+</div>
