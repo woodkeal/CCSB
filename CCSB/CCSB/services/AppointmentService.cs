@@ -9,9 +9,15 @@ namespace CCSB.services
 {
     public class AppointmentService : IAppointmentService
     {
+
         private readonly ApplicationDbContext _db;
 
-        public List<AdminViewModel> GetAdminList()
+        public AppointmentService(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+            public List<AdminViewModel> GetAdminList()
         {
             var Admins = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
