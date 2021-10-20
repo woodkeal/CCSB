@@ -13,7 +13,7 @@ namespace CCSB.services
 
         public List<AdminViewModel> GetAdminList()
         {
-            var admins = (from user in _db.Users
+            var Admins = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
                          join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
                          select new AdminViewModel
@@ -24,7 +24,7 @@ namespace CCSB.services
                              user.FirstName + " " + user.MiddleName + " " + user.LastName
                          }
                          ).OrderBy(u => u.Name).ToList();
-            return admins;
+            return Admins;
         }
 
         public List<UserViewModel> GetUserList()

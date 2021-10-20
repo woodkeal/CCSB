@@ -28,7 +28,6 @@ namespace CCSB.Models
             _signInManager = signInManager;
             _userManager = userManager;
         }
-
         public IActionResult Login()
         {
             return View();
