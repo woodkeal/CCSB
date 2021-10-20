@@ -1,4 +1,4 @@
-﻿using CCSB.services;
+﻿using CCSB.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,8 @@ namespace CCSB.Controllers
         public IActionResult Index()
         {
             ViewBag.AdminList = _appointmentService.GetAdminList();
+
+            ViewBag.UserList = _appointmentService.GetUserList();
             return View();
         }
     }

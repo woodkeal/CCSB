@@ -5,10 +5,11 @@ using System.Linq;
 using CCSB.Models;
 
 
-namespace CCSB.services
+namespace CCSB.Services
 {
     public class AppointmentService : IAppointmentService
     {
+
         private readonly ApplicationDbContext _db;
         public List<AdminViewModel> GetAdminList()
         {

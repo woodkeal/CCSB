@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CCSB.services
+namespace CCSB.Services
 {
     public interface IAppointmentService
     {

@@ -17,6 +17,9 @@ function InitializeCalendar() {
                 selectable: true,
                 weekNumbers: true,
                 editable: false,
+                select: function (event) {
+                    onShowModal(event, null)
+                }
             });
             calendar.render();
         }
@@ -25,3 +28,5 @@ function InitializeCalendar() {
         alert(e);
     }
 }
+
+function onShowModal(obj , isEven)
