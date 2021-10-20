@@ -1,8 +1,8 @@
-﻿using CCSB.Models.ViewModels;
+﻿using CCSB.Models;
+using CCSB.Models.ViewModels;
 using CCSB.Utility;
 using System.Collections.Generic;
 using System.Linq;
-using CCSB.Models;
 
 
 namespace CCSB.Services
@@ -11,7 +11,13 @@ namespace CCSB.Services
     {
 
         private readonly ApplicationDbContext _db;
-        public List<AdminViewModel> GetAdminList()
+
+        public AppointmentService(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+            public List<AdminViewModel> GetAdminList()
         {
             var Admins = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
