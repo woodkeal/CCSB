@@ -17,7 +17,7 @@ namespace CCSB.Services
             _db = db;
         }
 
-            public List<AdminViewModel> GetAdminList()
+        public List<AdminViewModel> GetAdminList()
         {
             var Admins = (from user in _db.Users
                          join userRole in _db.UserRoles on user.Id equals userRole.UserId

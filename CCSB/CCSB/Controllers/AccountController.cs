@@ -44,7 +44,7 @@ namespace CCSB.Models
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("index", "Appointment");
+                    return RedirectToAction("Agenda", "Agenda");
                 }
                 ModelState.AddModelError("", "inloggen mislukt");
             }
