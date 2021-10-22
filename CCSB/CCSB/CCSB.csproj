@@ -6,9 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\Appointment.cs~RF82fee9.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
-    <None Include="Views\Agenda\Agenda.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
