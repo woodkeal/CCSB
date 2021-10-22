@@ -1,9 +1,11 @@
 ﻿using CCSB.Models;
 using CCSB.Models.ViewModels;
 using CCSB.Utility;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-
+using System.Threading.Tasks;
 
 namespace CCSB.Services
 {
@@ -48,5 +50,33 @@ namespace CCSB.Services
               ).OrderBy(u => u.Name).ToList();
             return Users;
         }
+        public async Task<int> AddUpdate(AppointmentViewModel model)
+        {
+            var startDate = DateTime.Parse(model.StartDate, CultureInfo.CreateSpecificCulture("en-US"));
+            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
+
+            if(model != null & model.Id > 0)
+            {
+                return 1; 
+            }
+            else
+            {
+                Appointment appointment = new Appointment()
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    StartDate = startDate,
+                    EndDate = endDate, 
+                    Duration = model.Duration,
+                    AdminId = model.AdminId,
+                    UserId = model.UserId,
+                    IsDoctorApproved = model.IsDoctorApproved,
+                };
+                _db.Appointments.Add(appointment);
+                await _db.SaveChangesAsync();
+                return 2; 
+            }
+        }
+
     }
 }
