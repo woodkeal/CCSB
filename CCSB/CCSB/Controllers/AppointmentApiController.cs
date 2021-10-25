@@ -27,7 +27,6 @@ namespace CCSB.Controllers
             loginUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
-
         [HttpPost]
         [Route("SaveCalendarData")]
         public IActionResult SaveCalendarData(AppointmentViewModel data)
@@ -52,8 +51,6 @@ namespace CCSB.Controllers
             }
             return Ok(commonResponse);
         }
-
     }
-
-    
 }
+   
