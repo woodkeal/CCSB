@@ -27,29 +27,30 @@ namespace CCSB.Controllers
             loginUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
-    }
-    [HttpPost]
-    [Route("SaveCalendarData")]
-    public IActionResult SaveCalendarData(AppointmentViewModel data)
-    {
-        CommonResponse<int> commonResponse = new CommonResponse<int>();
-        try
+        [HttpPost]
+        [Route("SaveCalendarData")]
+        public IActionResult SaveCalendarData(AppointmentViewModel data)
         {
-            commonResponse.Status = _appointmentService.AddUpdate(data).Result;
-            if(commonResponse.Status == 1)
+            CommonResponse<int> commonResponse = new CommonResponse<int>();
+            try
             {
-                commonResponse.Message = Helper.AppointmentUpdated; 
-            }    
-            else if(commonResponse.Status == 2)
-            {
-                commonResponse.Message = Helper.AppointmentAdded;
+                commonResponse.Status = _appointmentService.AddUpdate(data).Result;
+                if (commonResponse.Status == 1)
+                {
+                    commonResponse.Message = Helper.AppointmentUpdated;
+                }
+                else if (commonResponse.Status == 2)
+                {
+                    commonResponse.Message = Helper.AppointmentAdded;
+                }
             }
+            catch (Exception ex)
+            {
+                commonResponse.Message = ex.Message;
+                commonResponse.Status = Helper.Failure_code;
+            }
+            return Ok(commonResponse);
         }
-        catch(Exception ex)
-        {
-            commonResponse.Message = ex.Message;
-            commonResponse.Status = Helper.Failure_code;
-        }
-        return Ok(commonResponse);
     }
 }
+   
