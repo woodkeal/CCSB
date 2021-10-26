@@ -1,0 +1,92 @@
+﻿
+
+@model CCSB.Models.ViewModels.InvoiceViewModel
+
+<div class="container" id="reglog-style">
+    <h2 class="row justify-content-center font-weight-bolder">Registreren</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <section>
+                <form id="account" method="post" asp-action="Register" asp-controller="Account">
+
+                    <h4>Account aanmaken</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger">
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="InvoiceNumber"></label>
+                        <div class="col-md-10">
+                            <input asp-for="InvoiceNumber" class="form-control" />
+                            <span asp-validation-for="InvoiceNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="CustomerName"></label>
+                        <div class="col-md-10">
+                            <input asp-for="CustomerName" class="form-control" />
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="Address"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="Type"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Type" class="form-control" />
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="LicensePlate"></label>
+                        <div class="col-md-10">
+                            <input asp-for="LicensePlate" class="form-control" />
+                            <span asp-validation-for="LicensePlate" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="Length"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Length" class="form-control" />
+                            <span asp-validation-for="Length" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2" asp-for="AmountPerMeter"></label>
+                        <div class="col-md-10">
+                            <input asp-for="AmountPerMeter" class="form-control" />
+                            <span asp-validation-for="AmountPerMeter" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10 offset-md-2">
+                            <input type="submit" value="Registreer" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="offset-md-2">
+                            <a asp-action="Login" id="button-layout">Login</a>
+                        </div>
+                    </div>
+
+                </form>
+                @section Scripts{
+                    <partial name="_ValidationScriptsPartial" />
+                }
+            </section>
+        </div>
+    </div>
+</div>
