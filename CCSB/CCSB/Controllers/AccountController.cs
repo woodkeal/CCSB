@@ -8,12 +8,12 @@ using CCSB.Models;
 using Microsoft.AspNetCore.Identity;
 using CCSB.Models.ViewModels;
 using CCSB.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace CCSB.Models
 {
     public class AccountController : Controller
     {
-
         private readonly ApplicationDbContext _db;
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
@@ -44,7 +44,7 @@ namespace CCSB.Models
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Appointment");
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "inloggen mislukt");
             }
