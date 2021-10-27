@@ -3,19 +3,19 @@
 @model CCSB.Models.ViewModels.InvoiceViewModel
 
 <div class="container" id="reglog-style">
-    <h2 class="row justify-content-center font-weight-bolder">Registreren</h2>
+    <h2 class="row justify-content-center font-weight-bolder">Factuur aanmaken</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <section>
                 <form id="account" method="post" asp-action="Register" asp-controller="Account">
 
-                    <h4>Account aanmaken</h4>
+                    <h4>Vul hieronder de gegevens in</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger">
 
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="InvoiceNumber"></label>
+                        <label class="col-md-2" asp-for="InvoiceNumber">Factuurnummer</label>
                         <div class="col-md-10">
                             <input asp-for="InvoiceNumber" class="form-control" />
                             <span asp-validation-for="InvoiceNumber" class="text-danger"></span>
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="CustomerName"></label>
+                        <label class="col-md-2" asp-for="CustomerName">Klantnaam</label>
                         <div class="col-md-10">
                             <input asp-for="CustomerName" class="form-control" />
                             <span asp-validation-for="CustomerName" class="text-danger"></span>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="Address"></label>
+                        <label class="col-md-2" asp-for="Address">Adres</label>
                         <div class="col-md-10">
                             <input asp-for="Address" class="form-control" />
                             <span asp-validation-for="Address" class="text-danger"></span>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="Type"></label>
+                        <label class="col-md-2" asp-for="Type">Type voertuig</label>
                         <div class="col-md-10">
                             <input asp-for="Type" class="form-control" />
                             <span asp-validation-for="Type" class="text-danger"></span>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="LicensePlate"></label>
+                        <label class="col-md-2" asp-for="LicensePlate">Kenteken</label>
                         <div class="col-md-10">
                             <input asp-for="LicensePlate" class="form-control" />
                             <span asp-validation-for="LicensePlate" class="text-danger"></span>
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="Length"></label>
+                        <label class="col-md-2" asp-for="Length">Lengte</label>
                         <div class="col-md-10">
                             <input asp-for="Length" class="form-control" />
                             <span asp-validation-for="Length" class="text-danger"></span>
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2" asp-for="AmountPerMeter"></label>
+                        <label class="col-md-2" asp-for="AmountPerMeter">Bedrag per meter</label>
                         <div class="col-md-10">
                             <input asp-for="AmountPerMeter" class="form-control" />
                             <span asp-validation-for="AmountPerMeter" class="text-danger"></span>
@@ -72,13 +72,7 @@
 
                     <div class="form-group">
                         <div class="col-md-10 offset-md-2">
-                            <input type="submit" value="Registreer" class="btn btn-success" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="offset-md-2">
-                            <a asp-action="Login" id="button-layout">Login</a>
+                            <input type="submit" value="Verzenden" class="btn btn-success" id="button-layout" />
                         </div>
                     </div>
 
