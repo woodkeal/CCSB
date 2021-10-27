@@ -20,82 +20,80 @@
 <body>
     <!--#region Header-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
-            <div class="container">
-                <a asp-controller="Home" asp-action="Index">
-                    <img class="menu-logo" src="~/lib/Images/Logo.png" />
-                </a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="text-hover-size" asp-area="" asp-controller="Agenda" asp-action="Agenda">Agenda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="mijn-voertuigen" asp-area="" asp-controller="Account" asp-action="Login">Mijn Voertuig</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a asp-controller="Home" asp-action="Index">
+                <img class="menu-logo" src="~/lib/Images/Logo.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" id="burgerMenu">
+                    <li class="nav-item" id="contactButton">
+                        <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item" id="vehicleButton">
+                        <a id="mijn-voertuigen" asp-area="" asp-controller="Account" asp-action="Login">Mijn Voertuig</a>
+                    </li>
+                </ul>
             </div>
-            <img class="menu-caravan" src="~/lib/Images/Camper.png" />
         </nav>
     </header>
-    <!--#endregion-->
 
-    @RenderBody()
+        @RenderBody()
 
-    <!--#region Footer-->
-    <div class="hrFooter">
-        <hr />
-    </div>
-    <footer class="footerclass">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 item text">
-                    <h3>CCSB</h3>
-                    <p>Bij ons kunt u uw camper of caravan veilig stallen. U kunt uw voertuig ophalen of brengen wanneer het u uit komt.</p>
-                </div>
-                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+        <!--#region Footer-->
+        <div class="container-fluid">
+            <div class="hrFooter">
+                <hr />
             </div>
-            <p class="copyright">CCSB © 2021</p>
         </div>
-    </footer>
-    <!--#endregion-->
-    <!-- #region Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <footer class="footerclass">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>CCSB</h3>
+                        <p>Bij ons kunt u uw camper of caravan veilig stallen. U kunt uw voertuig ophalen of brengen wanneer het u uit komt.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">CCSB © 2021</p>
+            </div>
+        </footer>
+        <!--#endregion-->
+        <!-- #region Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
-    <script type="text/javascript" src="~/js/notify.min.js"></script>
+        <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+        <script type="text/javascript" src="~/js/notify.min.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-    <!-- #endregion -->
+        @await RenderSectionAsync("Scripts", required: false)
+        <!-- #endregion -->
 </body>
 </html>
