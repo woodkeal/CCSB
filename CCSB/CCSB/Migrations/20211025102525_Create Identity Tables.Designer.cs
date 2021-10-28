@@ -107,17 +107,8 @@ namespace CCSB.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDoctorApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
+     
+                    b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")

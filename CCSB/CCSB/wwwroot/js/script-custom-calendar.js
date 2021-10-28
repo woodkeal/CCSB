@@ -48,7 +48,7 @@ function onSubmitForm() {
         Id: parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
-        StartDate: $("#appointmentDate").val(),
+        AppointmentDate: $("#appointmentDate").val(),
         AdminId: $("#adminId").val(),
         UserId: $("#userId").val(),
     };
