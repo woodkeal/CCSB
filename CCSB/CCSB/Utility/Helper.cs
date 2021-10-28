@@ -21,6 +21,7 @@ namespace CCSB.Utility
         public static string AppointmentConfirmError = "Er ging iets mis. Afspraak niet bevestigd.";
         public static string SomethingWentWrong = "Er ging iets mis. Probeer het opnieuw.";
         public static string AppointmentUpdatError = "Er ging iets mis. Afspraak niet gewijzigd.";
+
         public static int Succes_code = 1;
         public static int Failure_code = 0;
 

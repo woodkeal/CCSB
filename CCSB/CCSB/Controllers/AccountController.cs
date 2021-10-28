@@ -44,6 +44,7 @@ namespace CCSB.Models
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
+                    HttpContext.Session.SetString("loggedInSession", model.Email);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "inloggen mislukt");
@@ -94,7 +95,7 @@ namespace CCSB.Models
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            return View(Login());
         }
     }
 }

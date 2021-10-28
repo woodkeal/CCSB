@@ -47,14 +47,13 @@ function onSubmitForm() {
         Id: parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
-        StartDate: $("#appointmentDate").val(),
-        Duration: $("#duration").val(),
-        AdminId: $("#doctorId").val(),
-        UserId: $("#patientId").val(),
+        StartDate: $("#startDate").val(),
+        AdminId: $("#adminId").val(),
+        UserId: $("#userId").val(),
     };
 
     $.ajax({
-        url: routeURL + "/api/AppointmentApi/SaveCalendarDate",
+        url: routeURL + "/api/AppointmentApi/SaveCalendarData",
         type: "POST",
         data: JSON.stringify(requestData),
         contentType: "application/json",
