@@ -43,11 +43,12 @@ function onCloseModal() {
 }
 
 function onSubmitForm() {
+    if (!checkValidation()) return;
     var requestData = {
         Id: parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
-        StartDate: $("#startDate").val(),
+        StartDate: $("#appointmentDate").val(),
         AdminId: $("#adminId").val(),
         UserId: $("#userId").val(),
     };
@@ -60,6 +61,7 @@ function onSubmitForm() {
         success: function (response) {
             if (response.status === 1 || response.status === 2) {
                 $.notify(response.message, "succes");
+                onCloseModal();
             }else {
                 $.notify(response.message, "error");
             }
@@ -68,4 +70,21 @@ function onSubmitForm() {
             $.notify("Error", "Foutje");
         }
     })
+}
+
+function checkValidation() {
+    var isValid = true;
+    if ($("#title").val() === undefined || $("#title").val().trim() === "") {
+        isValid = false;
+        $("#title").addClass("error");
+    } else {
+        $("#title").removeClass("error");
+    }
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
+        isValid = false;
+        $("#appointmentDate").addClass("error");
+    } else {
+        $("#appointmentDate").removeClass("error");
+    }
+    return isValid; 
 }
