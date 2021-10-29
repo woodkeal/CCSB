@@ -17,17 +17,12 @@ a {
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
   font-size: 14px;
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -37,6 +32,7 @@ html {
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -75,60 +71,11 @@ body {
 /* Menu
 -------------------------------------------------- */
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
 .menu-logo{
-    height: 150px;
-}
-.navbar ul li a {
-    color: #8BDBF5;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 30px;
+    height: 80px;
 }
 
-.text-hover-size:hover {
-    font-size: 35px;
-}
 
-#mijn-voertuigen {
-    color: white;
-    background-color: #8BDBF5;
-    border-radius: 5px;
-    padding: 8px 15px;
-    border: 1px solid black;
-}
-
-#mijn-voertuigen:hover {
-    background-color: #5abcdb;
-
-}
-
-.navbar ul li{
-    display: flex;
-}
-
-.navbar-nav{
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.menu-caravan{
-    height: 150px;
-}
-.navbar{
-    padding: 0px;
-}
-
-.nav-item{
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
 /* Homepage
 -------------------------------------------------- */
 
@@ -214,7 +161,7 @@ a.navbar-brand {
 }
 
 .container{
-    max-width: 1500px;
+    width: 1500px;
 }
 
 .title-header hr {
@@ -337,8 +284,54 @@ footer {
     align-items: center;
 }
 
-.logout-button {
-    height: 100px;
-    width: 300px;
-    background: black;
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.horizontal-center {
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-button {
+    background: white;
+    width: 180px;
+    display: inline-block;
+    padding: 10px 0px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #8BDBF5;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+nav li a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-toggler {
+    display: none;
 }
