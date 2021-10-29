@@ -23,7 +23,7 @@
     <!--#region Header-->
     <header>
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="container navbar navbar-expand-lg navbar-light bg-light">
             <a asp-controller="Home" asp-action="Index">
                 <img class="menu-logo" src="~/lib/Images/Logo.png" />
             </a>
@@ -33,34 +33,32 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto" id="burgerMenu">
-                    @{
-                        if (User.Identity.Name != null)
-                        {
-                            <li class="nav-item">
-                                <a class="text-hover-size" asp-area="" asp-controller="Appointment" asp-action="Index">Agenda</a>
-                            </li>
-                        }
-                    }
+                    <li class="nav-item">
+                        <a class="text-hover-size" asp-area="" asp-controller="Appointment" asp-action="Index">Agenda</a>
+                    </li>
                     <li class="nav-item" id="contactButton">
                         <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                     </li>
                     <li class="nav-item" id="vehicleButton">
                         <a id="mijn-voertuigen" asp-area="" asp-controller="Account" asp-action="Login">Mijn Voertuig</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="" href="@Url.Action("LogOff","Account")">
+                            <div class="logout-button">
+                                @if (User.IsInRole(Helper.Admin))
+                                {
+                                    <p>Admin @User.Identity.Name</p>
+                                }
+                                @if (User.IsInRole(Helper.User))
+                                {
+                                    <p>User @User.Identity.Name</p>
+                                }
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="logout-button">
-                <a class="" href="@Url.Action("LogOff","Account")">
-                    @if (User.IsInRole(Helper.Admin))
-                    {
-                        <p>Admin @User.Identity.Name</p>
-                    }
-                    @if (User.IsInRole(Helper.User))
-                    {
-                        <p>User @User.Identity.Name</p>
-                    }
-                </a>
-            </div>
+            
         </nav>
     </header>
 

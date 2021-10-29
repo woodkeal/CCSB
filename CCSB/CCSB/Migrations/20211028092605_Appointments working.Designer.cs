@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211025164226_Appointment added")]
-    partial class Appointmentadded
+    [Migration("20211028092605_Appointments working")]
+    partial class Appointmentsworking
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -105,20 +105,11 @@ namespace CCSB.Migrations
                     b.Property<string>("AdminId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("AppointmentDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDoctorApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

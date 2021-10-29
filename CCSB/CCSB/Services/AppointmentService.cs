@@ -52,8 +52,7 @@ namespace CCSB.Services
         }
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
-            var startDate = DateTime.Parse(model.StartDate.ToString(), CultureInfo.CreateSpecificCulture("en-US")); //parse doesnt work. Convert.ToDateTime is a temporary fix.
-            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
+            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US")); //parse doesnt work. Convert.ToDateTime is a temporary fix.
 
             if (model != null & model.Id > 0)
             {
@@ -61,17 +60,13 @@ namespace CCSB.Services
             }
             else
             {
-                ;
                 Appointment appointment = new Appointment()
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    StartDate = startDate,
-                    EndDate = endDate,
-                    Duration = model.Duration,
+                    AppointmentDate = appointmentDate,
                     AdminId = model.AdminId,
-                    UserId = model.UserId,
-                    IsDoctorApproved = model.IsDoctorApproved,
+                    UserId = model.UserId
                 };
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();

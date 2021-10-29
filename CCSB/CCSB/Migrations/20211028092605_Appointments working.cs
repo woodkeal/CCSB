@@ -2,7 +2,7 @@
 
 namespace CCSB.Migrations
 {
-    public partial class Appointmentadded : Migration
+    public partial class Appointmentsworking : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

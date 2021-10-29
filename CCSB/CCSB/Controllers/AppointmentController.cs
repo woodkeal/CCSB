@@ -1,5 +1,6 @@
 ﻿using CCSB.Services;
 using CCSB.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CCSB.Controllers
 {
+    [Authorize]
     public class AppointmentController : Controller
     {
         private readonly IAppointmentService _appointmentService;
@@ -21,7 +23,15 @@ namespace CCSB.Controllers
             ViewBag.AdminList = _appointmentService.GetAdminList();
 
             ViewBag.UserList = _appointmentService.GetUserList();
-            return View();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 }

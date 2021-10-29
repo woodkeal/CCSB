@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CCSB.Controllers
 {
-    public class VoertuigenController : Controller
+    public class VehiclesController : Controller
     {
         public IActionResult Index()
         {

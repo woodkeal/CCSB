@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using CCSB.Models.ViewModels;
 using CCSB.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CCSB.Models
 {
@@ -32,7 +33,14 @@ namespace CCSB.Models
 
         public IActionResult Login()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Vehicles");
+            }
+            else
+            {
+                return View();   
+            }
         }
 
         [HttpPost]
@@ -44,7 +52,6 @@ namespace CCSB.Models
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
-                    HttpContext.Session.SetString("loggedInSession", model.Email);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "inloggen mislukt");
@@ -91,11 +98,11 @@ namespace CCSB.Models
             }
             return View();
         }
-        [HttpPost]
+        
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            return View(Login());
+            return RedirectToAction("Index", "Home");
         }
     }
 }
