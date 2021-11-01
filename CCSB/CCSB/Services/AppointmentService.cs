@@ -22,15 +22,15 @@ namespace CCSB.Services
         public List<AdminViewModel> GetAdminList()
         {
             var Admins = (from user in _db.Users
-                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
-                          join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
-                          select new AdminViewModel
-                          {
-                              Id = user.Id,
-                              Name = string.IsNullOrEmpty(user.MiddleName) ?
-                              user.FirstName + " " + user.LastName :
-                              user.FirstName + " " + user.MiddleName + " " + user.LastName
-                          }
+                         join userRole in _db.UserRoles on user.Id equals userRole.UserId
+                         join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
+                         select new AdminViewModel
+                         {
+                             Id = user.Id,
+                             Name = string.IsNullOrEmpty(user.MiddleName) ?
+                             user.FirstName + " " + user.LastName :
+                             user.FirstName + " " + user.MiddleName + " " + user.LastName
+                         }
                          ).OrderBy(u => u.Name).ToList();
             return Admins;
         }
@@ -73,5 +73,6 @@ namespace CCSB.Services
                 return 2;
             }
         }
+
     }
 }
