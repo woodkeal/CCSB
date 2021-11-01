@@ -81,8 +81,9 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-.menu-logo{
+.menu-logo {
     height: 150px;
+
 }
 .navbar ul li a {
     color: #8BDBF5;
@@ -202,7 +203,7 @@ a.navbar-brand {
 
 .title-header {
     color: #5ABCDB;
-    font-size: 150px;
+    font-size: 8rem;
     font-family: 'Bebas Neue', cursive;
     padding-top: 200px;
     line-height: 150px;
