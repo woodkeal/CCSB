@@ -11,6 +11,8 @@ namespace CCSB.Services
         public List<AdminViewModel> GetAdminList();
         public List<UserViewModel> GetUserList();
         public Task<int> AddUpdate(AppointmentViewModel model);
-
+        public List<AppointmentViewModel> AdminAppointments(string adminid);
+        public List<AppointmentViewModel> UserAppointments(string userid);
+        public AppointmentViewModel GetById(int id);
     }
 }

@@ -52,7 +52,7 @@ namespace CCSB.Services
         }
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
-            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US")); //parse doesnt work. Convert.ToDateTime is a temporary fix
+            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US"));
 
             if (model != null & model.Id > 0)
             {
@@ -73,6 +73,42 @@ namespace CCSB.Services
                 return 2;
             }
         }
-
+        public List<AppointmentViewModel> UserAppointments(string userid)
+        {
+            return _db.Appointments.Where(a => a.UserId == userid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        public List<AppointmentViewModel> AdminAppointments(string adminid)
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        public AppointmentViewModel GetById(int id)
+        {
+            return _db.Appointments.Where(a => a.Id == id).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
+                    Title = c.Title,
+                    UserId = c.UserId,
+                    AdminId = c.AdminId,
+                    UserName = _db.Users.Where(u => u.Id == c.UserId).Select(u => u.FullName).FirstOrDefault(),
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                }).SingleOrDefault();
+        }
     }
 }
