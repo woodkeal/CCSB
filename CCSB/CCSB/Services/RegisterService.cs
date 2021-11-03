@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace CCSB.Services
 {
-    public class AppointmentService : IAppointmentService
+    public class RegisterService : IRegisterService
     {
 
         private readonly ApplicationDbContext _db;
 
-        public AppointmentService(ApplicationDbContext db)
+        public RegisterService(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -51,25 +51,26 @@ namespace CCSB.Services
             return Users;
         }
 
-        public async Task<int> AddUpdate(AppointmentViewModel model)
+        public async Task<int> AddUpdate(VehicleRegistrationViewModel model)
         {
-            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US"));
 
-            if (model != null & model.Id > 0)
+            if (model != null)
             {
                 return 1;
             }
             else
             {
-                Appointment appointment = new Appointment()
+                Vehicles Vehicle = new Vehicles()
                 {
-                    Title = model.Title,
-                    Description = model.Description,
-                    AppointmentDate = appointmentDate,
-                    AdminId = model.AdminId,
-                    UserId = model.UserId,
+                    LicensePlate = model.LicensePlate,
+                    Mileage = model.Mileage,
+                    Length = model.Length,
+                    PowereSupply = model.PowereSupply,
+                    Brand = model.Brand,
+                    Model = model.Model,
+                    KindOfVehicle = model.KindOfVehicle,
                 };
-                _db.Appointments.Add(appointment);
+                _db.Vehicles.Add(Vehicle);
                 await _db.SaveChangesAsync();
                 return 2;
             }

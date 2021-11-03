@@ -45,7 +45,7 @@ function onCloseModal() {
 function onSubmitForm() {
     if (!checkValidation()) return;
     var requestData = {
-        Id: parseInt($("id").val()),
+        Id: 0 , //parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
         AppointmentDate: $("#appointmentDate").val(),

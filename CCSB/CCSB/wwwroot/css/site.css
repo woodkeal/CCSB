@@ -79,6 +79,10 @@ body {
 /* Homepage
 -------------------------------------------------- */
 
+header {
+    background: #f5f5f5;
+}
+
 .video-header {
     position: relative;
     width: 100%;
@@ -334,4 +338,29 @@ nav li a:hover {
 
 .navbar-toggler {
     display: none;
+}
+
+.vehicle-data-container {
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.vehicle-data-container-content {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+
+    .vehicle-data-container-content label {
+        font-weight: bold;
+        display: table-cell;
+    }
+
+.vehicle-data-container-content ul {
+    margin-bottom: 0px;
+}
+
+.vehicle-data-container-content ul li {
+    list-style: none;
 }

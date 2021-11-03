@@ -10,6 +10,52 @@ namespace CCSB.Controllers
     {
         public IActionResult Index()
         {
+            if (User.IsInRole("User"))
+            {
+                return View("Vehicles");
+            }
+            else if (User.IsInRole("Admin"))
+            {
+                return View("Register");
+            }
+            else 
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+        public IActionResult Vehicles() 
+        {
+            if (User.IsInRole("User"))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public IActionResult Register()
+        {
+            if (User.IsInRole("Admin"))
+            {
+                return View();
+            }
+            else {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(VehiclesController model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                
+            }
             return View();
         }
     }

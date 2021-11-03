@@ -35,7 +35,7 @@ namespace CCSB.Models
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Vehicles");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -66,7 +66,14 @@ namespace CCSB.Models
                 await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
                 await _roleManager.CreateAsync(new IdentityRole(Helper.User));
             }
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
