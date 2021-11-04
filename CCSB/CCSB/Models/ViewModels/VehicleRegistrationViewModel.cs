@@ -14,9 +14,7 @@ namespace CCSB.Models.ViewModels
         public string Brand { get; set; }
         public string Model { get; set; }
         public string KindOfVehicle { get; set; }
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Insertion { get; set; }
+        public string CustomerId { get; set; }
+        public string UserName { get; set; }
     }
 }

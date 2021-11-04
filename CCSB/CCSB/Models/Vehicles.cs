@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,6 @@ namespace CCSB.Models
 {
     public class Vehicles
     {
-        [Key]
         [DisplayName("Kenteken")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string LicensePlate { get; set; }
@@ -37,5 +37,12 @@ namespace CCSB.Models
         [DisplayName("Soort")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string KindOfVehicle { get; set; }
+
+        
+        public string ApplicationUserId { get; set; }
+
+        [Key]
+        [ForeignKey("CustomerId")]
+        public virtual ApplicationUser Customer { get; set; }
     }
 }

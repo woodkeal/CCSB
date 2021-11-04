@@ -1,33 +1,109 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using CCSB.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CCSB.Controllers
 {
     public class VehiclesController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public VehiclesController(ApplicationDbContext context)
         {
-            if (User.IsInRole("User"))
-            {
-                return View("Vehicles");
+            _context = context;
+        }
+
+        // GET: Vehicles
+        [Authorize]
+        public async Task<IActionResult> Index(string option, string search)
+        {
+            if (User.IsInRole("User")) {
+                
+                if (option == "License")
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
+                    x.LicensePlate == search && x.Customer.Email == User.Identity.Name || 
+                    x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
+                }
+                if (option == "Length")
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
+                    x.Length == search && x.Customer.Email == User.Identity.Name || 
+                    x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
+                }
+                else
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Customer.Email == User.Identity.Name).ToListAsync());
+                }
             }
-            else if (User.IsInRole("Admin"))
+
+
+
+            if (User.IsInRole("Admin"))
             {
-                return View("Register");
+                if (option == "Name")
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x =>
+                    x.Customer.FirstName + ' ' + x.Customer.LastName == search ||
+                    x.Customer.FirstName + ' ' + x.Customer.MiddleName + ' ' + x.Customer.LastName == search ||
+                    x.Customer.FirstName == search ||
+                    x.Customer.LastName == search ||
+                    search == null).ToListAsync());
+                }
+                if (option == "License")
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.LicensePlate == search || search == null).ToListAsync());
+                }
+                if (option == "Length")
+                {
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Length == search || search == null).ToListAsync());
+                }
+                else
+                {
+                    var applicationDbContext = _context.Vehicles.Include(v => v.Customer);
+                    return View(await applicationDbContext.ToListAsync());
+                }
             }
-            else 
-            {
-                return RedirectToAction("Login", "Account");
+            else {
+                return RedirectToAction("Index", "Home");
             }
         }
 
-        public IActionResult Vehicles() 
+        // GET: Vehicles/Details/5
+        [Authorize]
+        public async Task<IActionResult> Details(string id)
         {
-            if (User.IsInRole("User"))
+            if (id == null)
             {
+                return NotFound();
+            }
+
+            var vehicles = await _context.Vehicles
+                .Include(v => v.Customer)
+                .FirstOrDefaultAsync(m => m.LicensePlate == id);
+            if (vehicles == null)
+            {
+                return NotFound();
+            }
+
+            return View(vehicles);
+        }
+
+        // GET: Vehicles/Create
+        [Authorize]
+        public IActionResult Create()
+        {
+            if (User.IsInRole("Admin"))
+            {
+                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName");
                 return View();
             }
             else
@@ -36,27 +112,121 @@ namespace CCSB.Controllers
             }
         }
 
-        public IActionResult Register()
+        // POST: Vehicles1/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,CustomerId")] Vehicles vehicles)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(vehicles);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            return View(vehicles);
+        }
+
+        // GET: Vehicles/Edit/5
+        [Authorize]
+        public async Task<IActionResult> Edit(string id)
         {
             if (User.IsInRole("Admin"))
             {
-                return View();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var vehicles = await _context.Vehicles.FindAsync(id);
+                if (vehicles == null)
+                {
+                    return NotFound();
+                }
+                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+                return View(vehicles);
             }
-            else {
+            else
+            {
                 return RedirectToAction("Index", "Home");
             }
         }
 
+        // POST: Vehicles/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(VehiclesController model)
+        public async Task<IActionResult> Edit(string id, [Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,CustomerId")] Vehicles vehicles)
         {
+            if (id != vehicles.LicensePlate)
+            {
+                return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
-                
+                try
+                {
+                    _context.Update(vehicles);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VehiclesExists(vehicles.LicensePlate))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
-            return View();
+            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            return View(vehicles);
+        }
+
+        // GET: Vehicles/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var vehicles = await _context.Vehicles
+                .Include(v => v.Customer)
+                .FirstOrDefaultAsync(m => m.LicensePlate == id);
+            if (vehicles == null)
+            {
+                return NotFound();
+            }
+
+            return View(vehicles);
+        }
+
+        // POST: Vehicles/Delete/5
+        [Authorize]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var vehicles = await _context.Vehicles.FindAsync(id);
+            _context.Vehicles.Remove(vehicles);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool VehiclesExists(string id)
+        {
+            return _context.Vehicles.Any(e => e.LicensePlate == id);
         }
     }
 }
