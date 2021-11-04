@@ -65,7 +65,6 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
-                    AdminId = model.AdminId,
                     UserId = model.UserId,
                 };
                 _db.Appointments.Add(appointment);

@@ -51,6 +51,45 @@ namespace CCSB.Controllers
             }
             return Ok(commonResponse);
         }
+        [HttpGet]
+        [Route("GetCalendarData")]
+        public IActionResult GetCalendarData()
+        {
+            CommonResponse<List<AppointmentViewModel>> commonResponse = new CommonResponse<List<AppointmentViewModel>>();
+            try
+            {
+                if (role == Helper.User)
+                {
+                    commonResponse.Dataenum = _appointmentService.UserAppointments(loginUserId);
+                    commonResponse.Status = Helper.Succes_code;
+                }
+       
+            }
+            catch (Exception ex)
+            {
+                commonResponse.Message = ex.Message;
+                commonResponse.Status = Helper.Failure_code;
+            }
+            return Ok(commonResponse);
+        }
+
+        [HttpGet]
+        [Route("GetCalendarDataById/{id}")]
+        public IActionResult GetCalendarDataById(int id)
+        {
+            CommonResponse<AppointmentViewModel> commonResponse = new CommonResponse<AppointmentViewModel>();
+            try
+            {
+                commonResponse.Dataenum = _appointmentService.GetById(id);
+                commonResponse.Status = Helper.Succes_code;
+            }
+            catch (Exception ex)
+            {
+                commonResponse.Message = ex.Message;
+                commonResponse.Status = Helper.Failure_code;
+            }
+            return Ok(commonResponse);
+        }
     }
 }
    
