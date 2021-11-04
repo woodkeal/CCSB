@@ -28,7 +28,7 @@ function InitializeCalendar() {
                 eventDisplay: 'block',
                 events: function (fetchInfo, succesCallback, failureCallback) {
                     $.ajax({
-                        url: routeURL + '/api/AppointmentApi/getCalendarData?adminId=' + $("adminId").val(),
+                        url: routeURL + '/api/AppointmentApi/getCalendarData',
                         type: 'GET',
                         dataType: 'json',
                         success: function (response) {
@@ -39,7 +39,7 @@ function InitializeCalendar() {
                                         title: data.title,
                                         description: data.description,
                                         appointment: data.appointmentDate,
-                                        textColor: "white",
+                                        textColor: "black",
                                         id: data.id
                                     });
                                 })
@@ -64,7 +64,21 @@ function InitializeCalendar() {
     }
 }
 
-function onShowModal(obj, isEventDeail) {
+function onShowModal(obj, isEventDetail) {
+    if (isEventDetail) {
+        $("#title").val(obj.title);
+        $("#description").val(obj.description);
+        $("#appointmentDate").val(obj.appointmentDate);
+        $("#userId").val(obj.UserId);
+    }
+    else {
+        var appointmentdate = obj.start.getDate() + "-" + obj.start.getMonth() + "-" +
+            obj.start.getFullYear() + " " + new moment().format("HH:mm:ss")
+        $("#Id").val(0)
+        $("#title").val(obj.title);
+        $("#description").val(obj.description);
+        $("#appointmentDate").val(appointmentdate);
+    }
     $("#appointmentInput").modal("show");
 }
 
@@ -80,7 +94,7 @@ function onSubmitForm() {
         Description: $("#description").val(),
         AppointmentDate: $("#appointmentDate").val(),
         UserId: $("#userId").val(),
-    };
+    }
 
     $.ajax({
         url: routeURL + "/api/AppointmentApi/SaveCalendarData",
@@ -120,7 +134,7 @@ function checkValidation() {
 
 function getEventDetailsByEventId(info) {
     $.ajax({
-        url: routeURL + '/api/AppointmentApi/GetCalendarDataById' + info.id,
+        url: routeURL + '/api/AppointmentApi/GetCalendarDataById/' + info.id,
         type: 'get',
         dataType: 'json',
         success: function (response) {

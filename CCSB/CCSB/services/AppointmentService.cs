@@ -66,7 +66,6 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
-                    AdminId = model.AdminId,
                     UserId = model.UserId,
                 };
                 _db.Appointments.Add(appointment);
@@ -85,17 +84,6 @@ namespace CCSB.Services
                     Title = c.Title,
                 }).ToList();
         }
-        public List<AppointmentViewModel> AdminAppointments(string adminid)
-        {
-            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
-                c => new AppointmentViewModel()
-                {
-                    Id = c.Id,
-                    Description = c.Description,
-                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                    Title = c.Title,
-                }).ToList();
-        }
         public AppointmentViewModel GetById(int id)
         {
             return _db.Appointments.Where(a => a.Id == id).ToList().Select(
@@ -106,9 +94,8 @@ namespace CCSB.Services
                     AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
                     Title = c.Title,
                     UserId = c.UserId,
-                    AdminId = c.AdminId,
                     UserName = _db.Users.Where(u => u.Id == c.UserId).Select(u => u.FullName).FirstOrDefault(),
-                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+
                 }).SingleOrDefault();
         }
     }
