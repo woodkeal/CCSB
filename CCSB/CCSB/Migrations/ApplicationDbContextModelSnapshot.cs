@@ -16,7 +16,7 @@ namespace CCSB.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10")
+                .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CCSB.Models.ApplicationUser", b =>
@@ -103,20 +103,11 @@ namespace CCSB.Migrations
                     b.Property<string>("AdminId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("AppointmentDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDoctorApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

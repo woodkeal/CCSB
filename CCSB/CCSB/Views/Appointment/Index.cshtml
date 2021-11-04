@@ -3,12 +3,12 @@
         @if (User.IsInRole(CCSB.Utility.Helper.Admin))
         {
             <div class="form-group col-4" id="divAdminList">
-                <label>Select admin</label>
-                @Html.DropDownList("adminId", new SelectList(ViewBag.AdminList, "Id", "Name"),
+                <label>Select klant</label>
+                @Html.DropDownList("userId", new SelectList(ViewBag.UserList, "Id", "Name"),
                new { @class = "form-control select2" })
             </div>
         }
-        <div id="calendar"></div>"
+        <div id="calendar"></div>
         <partial name="_AddEditAppointment" />
     </div>
 </div>
