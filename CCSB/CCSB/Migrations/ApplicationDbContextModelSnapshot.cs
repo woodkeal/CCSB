@@ -106,9 +106,6 @@ namespace CCSB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AdminId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
@@ -128,6 +125,9 @@ namespace CCSB.Migrations
 
             modelBuilder.Entity("CCSB.Models.Vehicles", b =>
                 {
+                    b.Property<string>("LicensePlate")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -136,34 +136,16 @@ namespace CCSB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("KindOfVehicle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Length")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Insertion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostalCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CustomerID");
-
-                    b.ToTable("CustomerDetails");
-                });
-
-            modelBuilder.Entity("CCSB.Models.Vehicles", b =>
-                {
-                    b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -178,7 +160,12 @@ namespace CCSB.Migrations
                     b.Property<bool>("PowereSupply")
                         .HasColumnType("bit");
 
-                    b.HasKey("ApplicationUserId");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("LicensePlate");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CustomerId");
 
@@ -320,16 +307,22 @@ namespace CCSB.Migrations
                 {
                     b.HasBaseType("CCSB.Models.ApplicationUser");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BankAccount")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int?>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VehicleId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Customer");
@@ -339,9 +332,11 @@ namespace CCSB.Migrations
                 {
                     b.HasOne("CCSB.Models.ApplicationUser", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CCSB.Models.Customer", null)
+                        .WithMany("Vehicles")
+                        .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
@@ -395,6 +390,11 @@ namespace CCSB.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CCSB.Models.Customer", b =>
+                {
+                    b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

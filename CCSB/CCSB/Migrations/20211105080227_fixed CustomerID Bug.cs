@@ -2,7 +2,7 @@
 
 namespace CCSB.Migrations
 {
-    public partial class Appointmentadded : Migration
+    public partial class fixedCustomerIDBug : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

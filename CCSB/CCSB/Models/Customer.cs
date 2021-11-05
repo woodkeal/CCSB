@@ -8,9 +8,13 @@ namespace CCSB.Models
 {
     public class Customer : ApplicationUser
     {
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
         public string City { get; set; }
         public string BankAccount { get; set; }
         public string PostalCode { get; set; }
+        public string Address { get; set; }
+
+        //Navigation Property
+        public List<Vehicles> Vehicles { get; set; }
     }
 }
