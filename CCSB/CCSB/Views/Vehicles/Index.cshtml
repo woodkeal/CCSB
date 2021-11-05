@@ -1,1 +1,106 @@
-﻿TEST
+﻿@model IEnumerable<CCSB.Models.Vehicles>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+@using (Html.BeginForm("Index", "Vehicles", FormMethod.Get))
+{
+    <b> Search Option: </b>
+    @if (User.IsInRole("Admin")){
+        @Html.RadioButton("option", "Name") <label> Naam </label>
+    }
+    @Html.RadioButton("option", "License") <label> Kenteken </label>
+    @Html.RadioButton("option", "Length") <label> Lengte </label> 
+    @Html.TextBox("search")
+    <input type="submit"
+           name="submit"
+           value="Search" />
+    @*@Html.DropDownList("Options", new List<SelectListItem>
+         { new SelectListItem { Text = "Naam", Value = "1", Selected=true},
+           new SelectListItem { Text = "Soort voertuig", Value = "2"},
+           new SelectListItem { Text = "Stroom", Value = "3"},
+           new SelectListItem { Text = "Merk", Value = "4"},
+           new SelectListItem { Text = "Model", Value = "5"},
+           new SelectListItem { Text = "Lengte", Value = "6"},
+           new SelectListItem { Text = "Kilometers", Value = "7"}
+           })
+        @Html.TextBox("search")
+        <input type="submit"
+               name="submit"
+               value="Search" />*@
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KindOfVehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PowereSupply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KindOfVehicle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PowereSupply)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.LicensePlate">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.LicensePlate">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.LicensePlate">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

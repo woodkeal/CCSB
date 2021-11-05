@@ -1,6 +1,7 @@
 ﻿using CCSB.Models;
 using CCSB.Models.ViewModels;
 using CCSB.Utility;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -65,6 +66,7 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
+                    AdminId = model.AdminId,
                     UserId = model.UserId,
                 };
                 _db.Appointments.Add(appointment);
@@ -83,8 +85,138 @@ namespace CCSB.Services
                     Title = c.Title,
                 }).ToList();
         }
-        public AppointmentViewModel GetById(int id)
+
         {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+            return _db.Appointments.Where(a => a.AdminId == adminid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        {
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        public AppointmentViewModel GetById(int id)
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
             return _db.Appointments.Where(a => a.Id == id).ToList().Select(
                 c => new AppointmentViewModel()
                 {
@@ -94,7 +226,7 @@ namespace CCSB.Services
                     Title = c.Title,
                     UserId = c.UserId,
                     UserName = _db.Users.Where(u => u.Id == c.UserId).Select(u => u.FullName).FirstOrDefault(),
-
+                    AdminName = _db.Users.Where(u => u.Id == c.AdminId).Select(u => u.FullName).FirstOrDefault()
                 }).SingleOrDefault();
         }
     }

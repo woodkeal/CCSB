@@ -12,10 +12,22 @@ a {
 }
 
 .btn-primary {
+<<<<<<< HEAD
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+=======
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+>>>>>>> 031d8ffa630169509b47bce549595f191dcdaaca
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -159,7 +171,7 @@ body {
 .text-header {
     font-size: 25px;
     padding-bottom: 50px;
-    overflow: hidden;
+
 }
 
 .container {
@@ -338,4 +350,28 @@ nav li a:hover {
 
 .navbar-toggler {
     display: none;
+}
+
+.vehicle-data-container {
+    padding: 20px;
+}
+
+.vehicle-data-container-content {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+
+    .vehicle-data-container-content label {
+        font-weight: bold;
+        display: table-cell;
+    }
+
+.vehicle-data-container-content ul {
+    margin-bottom: 0px;
+}
+
+.vehicle-data-container-content ul li {
+    list-style: none;
 }

@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models
 {
-    public class CustomerDetails
+    public class Customer : ApplicationUser
     {
-        [Key]
-        public int CustomerID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Insertion { get; set; }
+        public int? CustomerID { get; set; }
         public string City { get; set; }
         public string BankAccount { get; set; }
         public string PostalCode { get; set; }
-        public string Email { get; set; }
+        public string Address { get; set; }
+
+        //Navigation Property
+        public List<Vehicles> Vehicles { get; set; }
     }
 }

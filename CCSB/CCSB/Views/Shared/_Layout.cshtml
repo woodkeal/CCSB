@@ -41,11 +41,11 @@
                             <div class="horizontal-center">Contact</div>
                         </a>
                     </li>
-                    <li class="nav-item" id="">
-                        <a class="nav-button horizontal-center" asp-area="" asp-controller="Account" asp-action="Login">
-                            <div class="horizontal-center">Mijn Voertuig</div>
-                        </a>
-                    </li>
+                        <li class="nav-item" id="">
+                            <a class="nav-button horizontal-center" asp-area="" asp-controller="Vehicles" asp-action="Index">
+                                <div class="horizontal-center">Voertuigen</div>
+                            </a>
+                        </li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
@@ -62,7 +62,10 @@
         </nav>
     </header>
 
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
+    
 
     <!--#region Footer-->
     <div class="container-fluid">
