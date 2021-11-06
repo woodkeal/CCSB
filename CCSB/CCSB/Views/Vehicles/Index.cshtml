@@ -4,18 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Voertuigen</h1>
 
 @if (User.IsInRole("Admin"))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Voeg toe</a>
     </p>
 }
 
 @using (Html.BeginForm("Index", "Vehicles", FormMethod.Get))
 {
-    <b> Search Option: </b>
+    <b> Zoek opties: </b>
     @if (User.IsInRole("Admin")){
         @Html.RadioButton("option", "Name") <label> Naam </label>
     }
@@ -24,7 +24,7 @@
     @Html.TextBox("search")
     <input type="submit"
            name="submit"
-           value="Search" />
+           value="Zoeken" />
     @*@Html.DropDownList("Options", new List<SelectListItem>
          { new SelectListItem { Text = "Naam", Value = "1", Selected=true},
            new SelectListItem { Text = "Soort voertuig", Value = "2"},
@@ -95,9 +95,9 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.LicensePlate">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.LicensePlate">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.LicensePlate">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.LicensePlate">Aanpassen</a> |
+                        <a asp-action="Details" asp-route-id="@item.LicensePlate">Informatie</a> |
+                        <a asp-action="Delete" asp-route-id="@item.LicensePlate">Verwijder</a>
                     </td>
                 }
             </tr>

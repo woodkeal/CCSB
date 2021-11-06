@@ -56,7 +56,6 @@ namespace CCSB.Services
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
             var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US"));
-
             if (model != null & model.Id > 0)
             {
                 return 1;
