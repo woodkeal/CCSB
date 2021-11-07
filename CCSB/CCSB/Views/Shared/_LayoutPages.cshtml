@@ -22,53 +22,48 @@
     <!--#region Header-->
     <header>
 
-        <nav class="container nav-bar navbar navbar-expand-lg navbar-light">
-
-            <a class="menu-logo-link navbar-brand" asp-controller="Home" asp-action="Index">
-                <img class="menu-logo" src="~/lib/Images/Logo.png" />
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav-menu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-button horizontal-center dropdown-item" asp-area="" asp-controller="Appointment" asp-action="Index">
-                            <div class="horizontal-center">Agenda</div>
-                        </a>
+                        <a class="nav-link" href="#">Link</a>
                     </li>
-                    <li class="nav-item" id="">
-                        <a class="nav-button" asp-area="" asp-controller="Home" asp-action="Contact">
-                            <div class="horizontal-center">Contact</div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
                     </li>
-                    <li class="nav-item" id="">
-                        <a class="nav-button horizontal-center" asp-area="" asp-controller="Vehicles" asp-action="Index">
-                            <div class="horizontal-center">Voertuigen</div>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-button" href="@Url.Action("LogOff","Account")">
-                                <div class="horizontal-center">
-                                    Uitloggen
-                                </div>
-                            </a>
-                        </li>
-                    }
-
                 </ul>
-
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-
         </nav>
 
     </header>
 
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
     
     <!--#region Footer-->
     <div class="container-fluid">
@@ -98,7 +93,6 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
     <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
     <script type="text/javascript" src="~/js/notify.min.js"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
     <!-- #endregion -->
 </body>
