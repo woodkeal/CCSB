@@ -17,7 +17,6 @@
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_LayoutPages.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />

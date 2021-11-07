@@ -26,19 +26,21 @@ namespace CCSB.Controllers
         public async Task<IActionResult> Index(string option, string search)
         {
             if (User.IsInRole("User")) {
-                
+                //Gives list results based on license plate from the logged in user
                 if (option == "License")
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
                     x.LicensePlate == search && x.Customer.Email == User.Identity.Name || 
                     x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
                 }
+                //Gives list results based on length plate from the logged in user
                 if (option == "Length")
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
                     x.Length == search && x.Customer.Email == User.Identity.Name || 
                     x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
                 }
+                //Gives list results from the logged in user
                 else
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Customer.Email == User.Identity.Name).ToListAsync());
@@ -46,9 +48,9 @@ namespace CCSB.Controllers
             }
 
 
-
             if (User.IsInRole("Admin"))
             {
+                //Gives list results based on name from all users
                 if (option == "Name")
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x =>
@@ -58,14 +60,17 @@ namespace CCSB.Controllers
                     x.Customer.LastName == search ||
                     search == null).ToListAsync());
                 }
+                //Gives list results based on licenseplate from all users
                 if (option == "License")
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.LicensePlate == search || search == null).ToListAsync());
                 }
+                //Gives list results based on length from all users
                 if (option == "Length")
                 {
                     return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Length == search || search == null).ToListAsync());
                 }
+                //Gives list results from all users
                 else
                 {
                     var applicationDbContext = _context.Vehicles.Include(v => v.Customer);
