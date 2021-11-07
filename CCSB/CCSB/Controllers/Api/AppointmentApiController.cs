@@ -63,7 +63,7 @@ namespace CCSB.Controllers
                     commonResponse.Dataenum = _appointmentService.UserAppointments(loginUserId);
                     commonResponse.Status = Helper.Succes_code;
                 }
-       
+
             }
             catch (Exception ex)
             {

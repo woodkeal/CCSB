@@ -36,6 +36,9 @@ namespace CCSB.Utility
         public static int Succes_code = 1;
         public static int Failure_code = 0;
 
+        public static string ContractUpdated { get; internal set; }
+        public static string ContractAdded { get; internal set; }
+
         public static List<SelectListItem> GetRolesForDropDown(bool isAdmin) 
         {
             var items = new List<SelectListItem>

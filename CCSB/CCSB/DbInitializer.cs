@@ -57,6 +57,15 @@ namespace CCSB.DatabaseInitializer
                 _userManager.CreateAsync(user, "qpwoeiQ1!").GetAwaiter().GetResult();
                 _userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
 
+                ApplicationUser user4 = new ApplicationUser(); 
+                user4.UserName = "emiel.vreemann29@gmail.com";
+                user4.Email = "emiel.vreemann29@gmail.com";
+                user4.EmailConfirmed = true;
+                user4.FirstName = "Emiel";
+                user4.MiddleName = "";
+                user4.LastName = "Vreemann";
+               _userManager.CreateAsync(user4, "Banaan127!").GetAwaiter().GetResult();
+               _userManager.AddToRoleAsync(user4, "Admin").GetAwaiter().GetResult();
                 ApplicationUser user1 = new ApplicationUser();
                 // Creeert User
                 user1.UserName = "j.van.gaalen@gmail.com";
@@ -78,6 +87,19 @@ namespace CCSB.DatabaseInitializer
                 user2.LastName = "Hoofd";
                 _userManager.CreateAsync(user2, "qpwoeiQ1!").GetAwaiter().GetResult();
                 _userManager.AddToRoleAsync(user2, "User").GetAwaiter().GetResult();
+
+                ApplicationUser user3 = new ApplicationUser();
+
+                //Creeert Admin
+                user3.UserName = "Gtrouerbach@icloud.com";
+                user3.Email = "Gtrouerbach@icloud.com";
+                user3.EmailConfirmed = true;
+                user3.FirstName = "Giovanni";
+                user3.MiddleName = "";
+                user3.LastName = "Trouerbach";
+                _userManager.CreateAsync(user3, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user3, "Admin").GetAwaiter().GetResult();
+
             }
         }
     }

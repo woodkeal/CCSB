@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CCSB.Models.ViewModels;
 
 
 namespace CCSB.Models
@@ -20,7 +21,7 @@ namespace CCSB.Models
         public DbSet<Appointment> Appointments { get; set; }
 		public DbSet<Customer> Customer { get; set; }
 		public DbSet<Vehicles> Vehicles { get; set; }
-
-	}
+        public DbSet<Contract> Contracts { get;  set; }
+    }
 
 }

@@ -7,7 +7,7 @@
             <div class="form-group col-4" id="divAdminList">
                 <label>Select klant</label>
                 @Html.DropDownList("userId", new SelectList(ViewBag.UserList, "Id", "Name"),
-               new { @class = "form-control select2" })
+               new { @class = "form-control select2", @onchange="onUserChange()" })
             </div>
         }
         <div id="calendar"></div>
