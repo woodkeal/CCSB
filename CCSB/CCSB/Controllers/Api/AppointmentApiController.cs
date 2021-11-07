@@ -50,7 +50,7 @@ namespace CCSB.Controllers
                 commonResponse.Status = Helper.Failure_code;
             }
             return Ok(commonResponse);
-        }/*
+        }
         [HttpGet]
         [Route("GetCalendarData")]
         public IActionResult GetCalendarData()
@@ -63,7 +63,7 @@ namespace CCSB.Controllers
                     commonResponse.Dataenum = _appointmentService.UserAppointments(loginUserId);
                     commonResponse.Status = Helper.Succes_code;
                 }
-       
+
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace CCSB.Controllers
                 commonResponse.Status = Helper.Failure_code;
             }
             return Ok(commonResponse);
-        }*/
+        }
     }
 }
    

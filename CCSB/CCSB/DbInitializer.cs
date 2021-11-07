@@ -54,9 +54,18 @@ namespace CCSB.DatabaseInitializer
                 user.FirstName = "Tim";
                 user.MiddleName = "";
                 user.LastName = "Houtman";
-                var result = _userManager.CreateAsync(user, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole = _userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
+                _userManager.CreateAsync(user, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
 
+                ApplicationUser user4 = new ApplicationUser(); 
+                user4.UserName = "emiel.vreemann29@gmail.com";
+                user4.Email = "emiel.vreemann29@gmail.com";
+                user4.EmailConfirmed = true;
+                user4.FirstName = "Emiel";
+                user4.MiddleName = "";
+                user4.LastName = "Vreemann";
+               _userManager.CreateAsync(user4, "Banaan127!").GetAwaiter().GetResult();
+               _userManager.AddToRoleAsync(user4, "Admin").GetAwaiter().GetResult();
                 ApplicationUser user1 = new ApplicationUser();
                 // Creeert User
                 user1.UserName = "j.van.gaalen@gmail.com";
@@ -65,8 +74,8 @@ namespace CCSB.DatabaseInitializer
                 user1.FirstName = "Jan";
                 user1.MiddleName = "van";
                 user1.LastName = "Gaalen";
-                var result1 = _userManager.CreateAsync(user1, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole1 = _userManager.AddToRoleAsync(user1, "User").GetAwaiter().GetResult();
+                _userManager.CreateAsync(user1, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user1, "User").GetAwaiter().GetResult();
 
                 ApplicationUser user2 = new ApplicationUser();
                 // Creeert User
@@ -76,8 +85,8 @@ namespace CCSB.DatabaseInitializer
                 user2.FirstName = "Henk";
                 user2.MiddleName = "";
                 user2.LastName = "Hoofd";
-                var result2 = _userManager.CreateAsync(user2, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole2 = _userManager.AddToRoleAsync(user2, "User").GetAwaiter().GetResult();
+                _userManager.CreateAsync(user2, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user2, "User").GetAwaiter().GetResult();
 
                 ApplicationUser user3 = new ApplicationUser();
 
