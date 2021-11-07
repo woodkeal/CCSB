@@ -1,9 +1,12 @@
+using CCSB.DatabaseInitializer;
 using CCSB.Models;
 using CCSB.Services;
+using CCSB.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,19 +30,26 @@ namespace CCSB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllersWithViews();
 
             services.AddTransient<IAppointmentService, AppointmentService>();
 
+            services.AddScoped<IEmailSender, EmailSender>();
+
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddHttpContextAccessor(); 
+            services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -59,6 +69,8 @@ namespace CCSB
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            dbInitializer.Initialize();
 
             app.UseEndpoints(endpoints =>
             {

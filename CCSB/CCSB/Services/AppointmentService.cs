@@ -1,6 +1,7 @@
 ﻿using CCSB.Models;
 using CCSB.Models.ViewModels;
 using CCSB.Utility;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,24 +14,26 @@ namespace CCSB.Services
     {
 
         private readonly ApplicationDbContext _db;
+        private readonly IEmailSender _emailSender;
 
-        public AppointmentService(ApplicationDbContext db)
+        public AppointmentService(ApplicationDbContext db, IEmailSender emailSender)
         {
             _db = db;
+            _emailSender = emailSender;
         }
 
         public List<AdminViewModel> GetAdminList()
         {
             var Admins = (from user in _db.Users
-                         join userRole in _db.UserRoles on user.Id equals userRole.UserId
-                         join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
-                         select new AdminViewModel
-                         {
-                             Id = user.Id,
-                             Name = string.IsNullOrEmpty(user.MiddleName) ?
-                             user.FirstName + " " + user.LastName :
-                             user.FirstName + " " + user.MiddleName + " " + user.LastName
-                         }
+                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
+                          join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
+                          select new AdminViewModel
+                          {
+                              Id = user.Id,
+                              Name = string.IsNullOrEmpty(user.MiddleName) ?
+                              user.FirstName + " " + user.LastName :
+                              user.FirstName + " " + user.MiddleName + " " + user.LastName
+                          }
                          ).OrderBy(u => u.Name).ToList();
             return Admins;
         }
@@ -52,8 +55,7 @@ namespace CCSB.Services
         }
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
-            var startDate = Convert.ToDateTime(model.StartDate, CultureInfo.CreateSpecificCulture("en-US")); //parse doesnt work. Convert.ToDateTime is a temporary fix.
-            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
+            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US"));
 
             if (model != null & model.Id > 0)
             {
@@ -65,18 +67,40 @@ namespace CCSB.Services
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    StartDate = startDate,
-                    EndDate = endDate,
-                    Duration = model.Duration,
-                    AdminId = model.AdminId,
+                    AppointmentDate = appointmentDate,
                     UserId = model.UserId,
-                    IsDoctorApproved = model.IsDoctorApproved,
                 };
+                await _emailSender.SendEmailAsync("0318584@student.rocvantwente.nl", "Groetjes!",
+                    $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
                 return 2;
             }
         }
+        public List<AppointmentViewModel> UserAppointments(string userid)
+        {
+            return _db.Appointments.Where(a => a.UserId == userid).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Title = c.Title,
+                }).ToList();
+        }
 
+        public AppointmentViewModel GetById(int id)
+        {
+            return _db.Appointments.Where(a => a.Id == id).ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
+                    Title = c.Title,
+                    UserId = c.UserId,
+                    UserName = _db.Users.Where(u => u.Id == c.UserId).Select(u => u.FullName).FirstOrDefault(),
+                }).SingleOrDefault();
+        }
     }
 }

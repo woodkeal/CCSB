@@ -24,6 +24,36 @@ function InitializeCalendar() {
                 editable: false,
                 select: function (event) {
                     onShowModal(event, null);
+                },
+                eventDisplay: 'block',
+                events: function (fetchInfo, succesCallback, failureCallback) {
+                    $.ajax({
+                        url: routeURL + '/api/AppointmentApi/getCalendarData',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (response) {
+                            var events = [];
+                            if (response.status === 1) {
+                                $.each(response.dataenum, function (i, data) {
+                                    events.push({
+                                        title: data.title,
+                                        description: data.description,
+                                        appointment: data.appointmentDate,
+                                        textColor: "black",
+                                        id: data.id
+                                    });
+                                })
+                            }
+                            succesCallback(events);
+                        },
+                        error: function (xhr) {
+                            $.notify("Error", "error")
+                        } 
+
+                    });
+                },
+                evenClick: function (info) {
+                    getEventDetailsByEventId(info.event);
                 }
             });
             calendar.render();
@@ -34,7 +64,21 @@ function InitializeCalendar() {
     }
 }
 
-function onShowModal(obj, isEventDeail) {
+function onShowModal(obj, isEventDetail) {
+    if (isEventDetail) {
+        $("#title").val(obj.title);
+        $("#description").val(obj.description);
+        $("#appointmentDate").val(obj.appointmentDate);
+        $("#userId").val(obj.UserId);
+    }
+    else {
+        var appointmentdate = obj.start.getDate() + "-" + obj.start.getMonth() + "-" +
+            obj.start.getFullYear() + " " + new moment().format("HH:mm:ss")
+        $("#Id").val(0)
+        $("#title").val(obj.title);
+        $("#description").val(obj.description);
+        $("#appointmentDate").val(appointmentdate);
+    }
     $("#appointmentInput").modal("show");
 }
 
@@ -43,24 +87,24 @@ function onCloseModal() {
 }
 
 function onSubmitForm() {
+    if (!checkValidation()) return;
     var requestData = {
-        Id: parseInt($("id").val()),
+        Id: 0 , //parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
-        StartDate: $("#appointmentDate").val(),
-        Duration: $("#duration").val(),
-        AdminId: $("#doctorId").val(),
-        UserId: $("#patientId").val(),
-    };
+        AppointmentDate: $("#appointmentDate").val(),
+        UserId: $("#userId").val(),
+    }
 
     $.ajax({
-        url: routeURL + "/api/AppointmentApi/SaveCalendarDate",
+        url: routeURL + "/api/AppointmentApi/SaveCalendarData",
         type: "POST",
         data: JSON.stringify(requestData),
         contentType: "application/json",
         success: function (response) {
             if (response.status === 1 || response.status === 2) {
                 $.notify(response.message, "succes");
+                onCloseModal();
             }else {
                 $.notify(response.message, "error");
             }
@@ -69,4 +113,37 @@ function onSubmitForm() {
             $.notify("Error", "Foutje");
         }
     })
+}
+
+function checkValidation() {
+    var isValid = true;
+    if ($("#title").val() === undefined || $("#title").val().trim() === "") {
+        isValid = false;
+        $("#title").addClass("error");
+    } else {
+        $("#title").removeClass("error");
+    }
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
+        isValid = false;
+        $("#appointmentDate").addClass("error");
+    } else {
+        $("#appointmentDate").removeClass("error");
+    }
+    return isValid; 
+}
+
+function getEventDetailsByEventId(info) {
+    $.ajax({
+        url: routeURL + '/api/AppointmentApi/GetCalendarDataById/' + info.id,
+        type: 'get',
+        dataType: 'json',
+        success: function (response) {
+            if (response.status === 1 && response.dataenum != undefined) {
+                onShowModal(response.dataenum, true);
+            }
+        },
+        error: function (xhr) {
+            $.notify("Error", "error");
+        }
+    });
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using CCSB.Utility
+
+<!DOCTYPE html>
 <html lang="en">
 <!--#region Head-->
 <head>
@@ -9,47 +11,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <link href="~/select2/css/select2.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
-    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
 </head>
 <!--#endregion-->
 <body>
     <!--#region Header-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
-            <div class="container">
-                <a asp-controller="Home" asp-action="Index">
-                    <img class="menu-logo" src="~/lib/Images/Logo.png" />
-                </a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="text-hover-size" asp-area="" asp-controller="Agenda" asp-action="Agenda">Agenda</a>
+
+        <nav class="container nav-bar">
+            <a class="menu-logo-link" asp-controller="Home" asp-action="Index">
+                <img class="menu-logo" src="~/lib/Images/Logo.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-button horizontal-center" asp-area="" asp-controller="Appointment" asp-action="Index">
+                            <div class="horizontal-center">Agenda</div>
+                        </a>
+                    </li>
+                    <li class="nav-item" id="">
+                        <a class="nav-button" asp-area="" asp-controller="Home" asp-action="Contact">
+                            <div class="horizontal-center">Contact</div>
+                        </a>
+                    </li>
+                        <li class="nav-item" id="">
+                            <a class="nav-button horizontal-center" asp-area="" asp-controller="Vehicles" asp-action="Index">
+                                <div class="horizontal-center">Voertuigen</div>
+                            </a>
                         </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
                         <li class="nav-item">
-                            <a class="text-hover-size" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-button" href="@Url.Action("LogOff","Account")">
+                                <div class="horizontal-center">
+                                    Uitloggen
+                                </div>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a id="mijn-voertuigen" asp-area="" asp-controller="Account" asp-action="Login">Mijn Voertuig</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-            <img class="menu-caravan" src="~/lib/Images/Camper.png" />
+                    }
+
+                </ul>
+
         </nav>
     </header>
-    <!--#endregion-->
 
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
+    
 
     <!--#region Footer-->
-    <div class="hrFooter">
-        <hr />
+    <div class="container-fluid">
+        <div class="hrFooter">
+            <hr />
+        </div>
     </div>
     <footer class="footerclass">
         <div class="container">
@@ -86,8 +108,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/select2/js/select2.js"></script>
+   @* <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>*@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
@@ -99,3 +121,12 @@
     <!-- #endregion -->
 </body>
 </html>
+
+<!--@if (User.IsInRole(Helper.Admin))
+                                    {
+                                        @User.Identity.Name
+                                    }
+                                    @if (User.IsInRole(Helper.User))
+                                    {
+                                        @User.Identity.Name
+                                    }-->

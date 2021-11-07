@@ -8,12 +8,13 @@ using CCSB.Models;
 using Microsoft.AspNetCore.Identity;
 using CCSB.Models.ViewModels;
 using CCSB.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CCSB.Models
 {
     public class AccountController : Controller
     {
-
         private readonly ApplicationDbContext _db;
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
@@ -32,7 +33,14 @@ namespace CCSB.Models
 
         public IActionResult Login()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();   
+            }
         }
 
         [HttpPost]
@@ -44,7 +52,7 @@ namespace CCSB.Models
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Appointment");
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "inloggen mislukt");
             }
@@ -58,7 +66,14 @@ namespace CCSB.Models
                 await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
                 await _roleManager.CreateAsync(new IdentityRole(Helper.User));
             }
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -67,18 +82,22 @@ namespace CCSB.Models
 
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser()
+                Customer user = new Customer()
                 {
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     MiddleName = model.MiddleName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    City = model.City,
+                    BankAccount = model.BankAccount,
+                    PostalCode = model.PostalCode,
+                    Address = model.Address
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded) 
                 {
-                    await _userManager.AddToRoleAsync(user, model.RoleName);
+                    await _userManager.AddToRoleAsync(user, "User");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -90,11 +109,11 @@ namespace CCSB.Models
             }
             return View();
         }
-        [HttpPost]
+        
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

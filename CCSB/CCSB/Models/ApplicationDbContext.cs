@@ -17,8 +17,9 @@ namespace CCSB.Models
 
 		}
 
+
         public DbSet<Appointment> Appointments { get; set; }
-		public DbSet<CustomerDetails> CustomerDetails { get; set; }
+		public DbSet<Customer> Customer { get; set; }
 		public DbSet<Vehicles> Vehicles { get; set; }
         public DbSet<Contract> Contracts { get;  set; }
     }
