@@ -14,8 +14,6 @@ namespace CCSB.Services
 
         private readonly ApplicationDbContext _db;
 
-        public DateTime DatumVan { get; set; }
-
         public ContractService(ApplicationDbContext db)
         {
             _db = db;
@@ -55,10 +53,8 @@ namespace CCSB.Services
         }
         public async Task<int> AddUpdate(Contract model)
         {
-            var startDate = Convert.ToDateTime(model.DatumVan, CultureInfo.CreateSpecificCulture("en-US")); //parse doesnt work. Convert.ToDateTime is a temporary fix.
-            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
 
-            if (model != null & model.Id > 0)
+            if (model != null & model.ContractId > 0)
             {
                 return 1;
             }
@@ -66,13 +62,10 @@ namespace CCSB.Services
             {
                 Contract Contracts = new Contract()
                 {
-                    Title = model.Title,
-                    Description = model.Description,
-                    DatumVan = DatumVan,
-                    DatumTot = endDate,
-                    Duration = model.Duration,
-                    AdminId = model.AdminId,
-                    UserId = model.UserId,
+                    Voornaam = model.Voornaam,
+                    Achternaam = model.Achternaam,
+                    DatumVan = model.DatumVan,
+                    DatumTot = model.DatumTot,
                 };
                 _db.Contracts.Add(Contracts);
                 await _db.SaveChangesAsync();

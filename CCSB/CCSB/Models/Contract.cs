@@ -16,11 +16,6 @@ namespace CCSB.Models
         public string Tussenvoegsels { get; set; }
         public DateTime DatumVan { get; set; }
         public DateTime DatumTot { get; set; }
-        public int Duration { get; internal set; }
-        public string Title { get; internal set; }
-        public string Description { get; internal set; }
-        public string AdminId { get; internal set; }
-        public string UserId { get; internal set; }
-        public int Id { get; internal set; }
+        public int ContractId { get; set; }
     }
 }
