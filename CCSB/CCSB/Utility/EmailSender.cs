@@ -21,7 +21,7 @@ namespace CCSB.Utility
                 Resource = Send.Resource,
             }
             .Property(Send.FromEmail, "camperencarvanstalling@gmail.com")
-            .Property(Send.FromName, "Appointment Scheduler")
+            .Property(Send.FromName, "CCSB")
             .Property(Send.Subject, subject)
             .Property(Send.HtmlPart, htmlMessage)
             .Property(Send.Recipients, new JArray {
