@@ -38,7 +38,7 @@ function InitializeCalendar() {
                                     events.push({
                                         title: data.title,
                                         description: data.description,
-                                        appointment: data.appointmentDate,
+                                        start: data.appointmentDate,
                                         textColor: "black",
                                         id: data.id
                                     });
@@ -73,7 +73,7 @@ function onShowModal(obj, isEventDetail) {
     }
     else {
         var appointmentdate = obj.start.getDate() + "-" + obj.start.getMonth() + "-" +
-            obj.start.getFullYear() + " " + new moment().format("HH:mm:ss")
+            obj.start.getFullYear() + " " + new moment().format("HH:mm")
         $("#Id").val(0)
         $("#title").val(obj.title);
         $("#description").val(obj.description);
@@ -89,7 +89,7 @@ function onCloseModal() {
 function onSubmitForm() {
     if (!checkValidation()) return;
     var requestData = {
-        Id: 0 , //parseInt($("id").val()),
+        Id: parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
         AppointmentDate: $("#appointmentDate").val(),
@@ -103,6 +103,7 @@ function onSubmitForm() {
         contentType: "application/json",
         success: function (response) {
             if (response.status === 1 || response.status === 2) {
+                calendar.refetchEvents(); 
                 $.notify(response.message, "succes");
                 onCloseModal();
             }else {
@@ -146,4 +147,8 @@ function getEventDetailsByEventId(info) {
             $.notify("Error", "error");
         }
     });
+}
+
+function onUserChange() {
+    calendar.refetchEvents(); 
 }

@@ -8,11 +8,10 @@ button {
 
 /* Provide sufficient contrast against white background */
 a {
-    color: #0366d6;
+    color: #8BDBF5;
 }
 
 .btn-primary {
-<<<<<<< HEAD
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -22,23 +21,16 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-=======
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
->>>>>>> 031d8ffa630169509b47bce549595f191dcdaaca
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
     font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+    position: relative;
+    min-height: 100%;
 }
 
 .border-top {
@@ -58,18 +50,10 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
-
 
 .social a {
     padding: 0px 5px;
@@ -116,7 +100,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0px 200px 0px 0px;
+    border-radius: 0px 140px 0px 0px;
 }
 
 .video-content-box {
@@ -131,11 +115,6 @@ body {
     transform: translateX(50px);
 }
 
-@media screen and (max-width: 600px) {
-    .media-video {
-        display: none;
-    }
-}
 
 .video-content-box button {
     max-height: 50px;
@@ -151,26 +130,22 @@ body {
     justify-content: center;
     border: solid 1px black;
     width: 580px;
-    border-radius: 10px;
+    border-radius: 4px;
     font-family: 'Bebas Neue', cursive;
 }
 
-    .video-content-box button:hover {
-        background-color: #5abcdb;
-        width: 580px;
-    }
+.video-content-box button:hover {
+    background-color: #5abcdb;
+    width: 580px;
+}
 
 .title-header {
     color: #5ABCDB;
-    font-size: 150px;
     font-family: 'Bebas Neue', cursive;
-    padding-top: 200px;
-    line-height: 150px;
 }
 
 .text-header {
     font-size: 25px;
-    padding-bottom: 50px;
 
 }
 
@@ -187,7 +162,7 @@ body {
 }
 
 .img-header img {
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 4px;
     width: 100%;
     display: flex;
 }
@@ -249,6 +224,7 @@ footer {
     margin-top: 40px;
     margin-bottom: 40px;
     border-radius: 20px;
+    background: #e8e8e8;
 }
 
 #button-layout {
@@ -261,10 +237,10 @@ footer {
     font-weight: bolder;
 }
 
-    #button-layout:hover {
-        background-color: #5abcdb;
-        text-decoration: none;
-    }
+#button-layout:hover {
+    background-color: #5abcdb;
+    text-decoration: none;
+}
 
 #contact-header-img {
     height: 500px;
@@ -340,16 +316,16 @@ nav li a:hover {
 .nav-bar {
     display: flex;
     justify-content: space-between;
-    padding: 25px 0;
+    padding: 25px;
+}
+
+header {
+    background: #e8e8e8;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-}
-
-.navbar-toggler {
-    display: none;
 }
 
 .vehicle-data-container {
@@ -363,10 +339,10 @@ nav li a:hover {
     padding: 10px 0;
 }
 
-    .vehicle-data-container-content label {
-        font-weight: bold;
-        display: table-cell;
-    }
+.vehicle-data-container-content label {
+    font-weight: bold;
+    display: table-cell;
+}
 
 .vehicle-data-container-content ul {
     margin-bottom: 0px;
@@ -375,3 +351,78 @@ nav li a:hover {
 .vehicle-data-container-content ul li {
     list-style: none;
 }
+
+.info-tags {
+    padding-top: 40px;
+}
+
+.main-content-text {
+    width: 70%;
+}
+
+.main-content-item {
+    padding: 15px;
+}
+
+.main-content-text {
+    width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+    .video-header {
+        display: none;
+    }
+
+    .title-header {
+        font-size: 80px;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    .menu-logo-link {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .main-content-container {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        width: 100%;
+    }
+
+    .nav-item {
+        padding-top: 10px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    .info-tags {
+        flex-wrap: wrap;
+    }
+
+    .title-header {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 575.98px) {
+}
+
+
+
+
+

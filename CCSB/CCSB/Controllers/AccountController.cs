@@ -10,6 +10,7 @@ using CCSB.Models.ViewModels;
 using CCSB.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace CCSB.Models
 {
@@ -19,8 +20,10 @@ namespace CCSB.Models
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
         RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailSender _emailSender;
 
         public AccountController(ApplicationDbContext db,
+            IEmailSender emailSender,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             SignInManager<ApplicationUser> signInManager)
@@ -29,10 +32,12 @@ namespace CCSB.Models
             _roleManager = roleManager;
             _signInManager = signInManager;
             _userManager = userManager;
+            _emailSender = emailSender;
         }
 
         public IActionResult Login()
         {
+            //Checks if an user is logged in
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
@@ -59,13 +64,9 @@ namespace CCSB.Models
             return View(model);
         }
 
-        public async Task<IActionResult> Register()
+        public IActionResult Register()
         {
-            if (!_roleManager.RoleExistsAsync(Helper.Admin).GetAwaiter().GetResult()) 
-            {
-                await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
-                await _roleManager.CreateAsync(new IdentityRole(Helper.User));
-            }
+            //Checks if an user is logged in
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
@@ -82,6 +83,7 @@ namespace CCSB.Models
 
             if (ModelState.IsValid)
             {
+                //Passed data from register form
                 Customer user = new Customer()
                 {
                     UserName = model.Email,
@@ -94,11 +96,21 @@ namespace CCSB.Models
                     PostalCode = model.PostalCode,
                     Address = model.Address
                 };
+
+                //Tries to register user in the database
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded) 
                 {
+                    //Add user to role user
                     await _userManager.AddToRoleAsync(user, "User");
+
+                    //Signs in user imidiatly after registering
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    //Send email when registered succesfully
+                    await _emailSender.SendEmailAsync(user.Email, "Welkom!",
+                    $"Er is een account aangemaakt bij CCSB!");
+
                     return RedirectToAction("Index", "Home");
                 }
                 
@@ -112,6 +124,7 @@ namespace CCSB.Models
         
         public async Task<IActionResult> LogOff()
         {
+            //Logs out user
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }

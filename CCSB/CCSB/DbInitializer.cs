@@ -45,51 +45,61 @@ namespace CCSB.DatabaseInitializer
             {
                 _roleManager.CreateAsync(new IdentityRole() { Name = "Admin" }).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole() { Name = "User" }).GetAwaiter().GetResult();
-                ApplicationUser user = new ApplicationUser();
 
                 //Creeert Admin
-                user.UserName = "Timhoutman1999@gmail.com";
-                user.Email = "Timhoutman1999@gmail.com";
-                user.EmailConfirmed = true;
-                user.FirstName = "Tim";
-                user.MiddleName = "";
-                user.LastName = "Houtman";
-                var result = _userManager.CreateAsync(user, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole = _userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
+                ApplicationUser Admin1 = new ApplicationUser();
+                Admin1.UserName = "Timhoutman1999@gmail.com";
+                Admin1.Email = "Timhoutman1999@gmail.com";
+                Admin1.EmailConfirmed = true;
+                Admin1.FirstName = "Tim";
+                Admin1.MiddleName = "";
+                Admin1.LastName = "Houtman";
+                _userManager.CreateAsync(Admin1, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(Admin1, "Admin").GetAwaiter().GetResult();
 
-                ApplicationUser user1 = new ApplicationUser();
+                //Creeert Admin
+                ApplicationUser Admin2 = new ApplicationUser(); 
+                Admin2.UserName = "emiel.vreemann29@gmail.com";
+                Admin2.Email = "emiel.vreemann29@gmail.com";
+                Admin2.EmailConfirmed = true;
+                Admin2.FirstName = "Emiel";
+                Admin2.MiddleName = "";
+                Admin2.LastName = "Vreemann";
+               _userManager.CreateAsync(Admin2, "Banaan127!").GetAwaiter().GetResult();
+               _userManager.AddToRoleAsync(Admin2, "Admin").GetAwaiter().GetResult();
+
+                //Creeert Admin
+                ApplicationUser Admin4 = new ApplicationUser();
+                Admin4.UserName = "Gtrouerbach@icloud.com";
+                Admin4.Email = "Gtrouerbach@icloud.com";
+                Admin4.EmailConfirmed = true;
+                Admin4.FirstName = "Giovanni";
+                Admin4.MiddleName = "";
+                Admin4.LastName = "Trouerbach";
+                _userManager.CreateAsync(Admin4, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(Admin4, "Admin").GetAwaiter().GetResult();
+
                 // Creeert User
+                ApplicationUser user1 = new ApplicationUser();
                 user1.UserName = "j.van.gaalen@gmail.com";
                 user1.Email = "j.van.gaalen@gmail.com";
                 user1.EmailConfirmed = true;
                 user1.FirstName = "Jan";
                 user1.MiddleName = "van";
                 user1.LastName = "Gaalen";
-                var result1 = _userManager.CreateAsync(user1, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole1 = _userManager.AddToRoleAsync(user1, "User").GetAwaiter().GetResult();
+                _userManager.CreateAsync(user1, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user1, "User").GetAwaiter().GetResult();
 
-                ApplicationUser user2 = new ApplicationUser();
                 // Creeert User
+                ApplicationUser user2 = new ApplicationUser();
                 user2.UserName = "henk.hoofd@gmail.com";
                 user2.Email = "henk.hoofd@gmail.com";
                 user2.EmailConfirmed = true;
                 user2.FirstName = "Henk";
                 user2.MiddleName = "";
                 user2.LastName = "Hoofd";
-                var result2 = _userManager.CreateAsync(user2, "qpwoeiQ1!").GetAwaiter().GetResult();
-                var resultrole2 = _userManager.AddToRoleAsync(user2, "User").GetAwaiter().GetResult();
-
-                ApplicationUser user3 = new ApplicationUser();
-
-                //Creeert Admin
-                user3.UserName = "Gtrouerbach@icloud.com";
-                user3.Email = "Gtrouerbach@icloud.com";
-                user3.EmailConfirmed = true;
-                user3.FirstName = "Giovanni";
-                user3.MiddleName = "";
-                user3.LastName = "Trouerbach";
-                _userManager.CreateAsync(user3, "qpwoeiQ1!").GetAwaiter().GetResult();
-                _userManager.AddToRoleAsync(user3, "Admin").GetAwaiter().GetResult();
+                _userManager.CreateAsync(user2, "qpwoeiQ1!").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user2, "User").GetAwaiter().GetResult();
 
             }
         }

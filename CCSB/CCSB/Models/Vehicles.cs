@@ -38,9 +38,6 @@ namespace CCSB.Models
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string KindOfVehicle { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
-
         public string ApplicationUserId { get; set; }
         public ApplicationUser Customer { get; set; }
     }

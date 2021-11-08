@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CCSB.Services
 {
-    public class ContractService : IContractService
+    public class ContractService
     {
 
         private readonly ApplicationDbContext _db;
@@ -66,6 +66,7 @@ namespace CCSB.Services
                     Achternaam = model.Achternaam,
                     DatumVan = model.DatumVan,
                     DatumTot = model.DatumTot,
+                    ContractId = model.ContractId
                 };
                 _db.Contracts.Add(Contracts);
                 await _db.SaveChangesAsync();
