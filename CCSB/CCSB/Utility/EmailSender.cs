@@ -13,14 +13,14 @@ namespace CCSB.Utility
     {
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            MailjetClient client = new MailjetClient("1609df55534324052dad44cfb3b309c7", "9622c8ae41db7e2d801dc24e62af50b6")
+            MailjetClient client = new MailjetClient("2fd69b32bf4a5a7939f7e69b989115a7", "0e84cb6af76e96d80b57b89c0cc6a136")
             {
             };
             MailjetRequest request = new MailjetRequest
             { 
                 Resource = Send.Resource,
             }
-            .Property(Send.FromEmail, "0318584@student.rocvantwente.nl")
+            .Property(Send.FromEmail, "camperencarvanstalling@gmail.com")
             .Property(Send.FromName, "Appointment Scheduler")
             .Property(Send.Subject, subject)
             .Property(Send.HtmlPart, htmlMessage)

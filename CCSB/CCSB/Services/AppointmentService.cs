@@ -69,7 +69,7 @@ namespace CCSB.Services
                     AppointmentDate = appointmentDate,
                     UserId = model.UserId,
                 };
-                await _emailSender.SendEmailAsync("0318584@student.rocvantwente.nl", "Groetjes!",
+                await _emailSender.SendEmailAsync("timhoutman1999@gmail.com", "Groetjes!",
                     $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
@@ -83,7 +83,7 @@ namespace CCSB.Services
                 {
                     Id = c.Id,
                     Description = c.Description,
-                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm"),
                     Title = c.Title,
                 }).ToList();
         }
