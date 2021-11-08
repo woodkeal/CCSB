@@ -53,7 +53,7 @@ namespace CCSB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Kenteken,Voornaam,Achternaam,Tussenvoegsels,DatumVan,DatumTot,Duration,Title,Description,AdminId,UserId,Id")] Contract contract)
+        public async Task<IActionResult> Create([Bind("Kenteken,Voornaam,Achternaam,Tussenvoegsels,DatumVan,DatumTot,ContractId")] Contract contract)
         {
             if (ModelState.IsValid)
             {
