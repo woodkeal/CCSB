@@ -53,7 +53,7 @@ namespace CCSB.Controllers
         }
         [HttpGet]
         [Route("GetCalendarData")]
-        public IActionResult GetCalendarData()
+        public IActionResult GetCalendarData(string userId)
         {
             CommonResponse<List<AppointmentViewModel>> commonResponse = new CommonResponse<List<AppointmentViewModel>>();
             try
@@ -61,6 +61,11 @@ namespace CCSB.Controllers
                 if (role == Helper.User)
                 {
                     commonResponse.Dataenum = _appointmentService.UserAppointments(loginUserId);
+                    commonResponse.Status = Helper.Succes_code;
+                }
+                else if(role == Helper.Admin)
+                {
+                    commonResponse.Dataenum = _appointmentService.AllAppointments();
                     commonResponse.Status = Helper.Succes_code;
                 }
 

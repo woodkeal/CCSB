@@ -28,7 +28,7 @@ function InitializeCalendar() {
                 eventDisplay: 'block',
                 events: function (fetchInfo, succesCallback, failureCallback) {
                     $.ajax({
-                        url: routeURL + '/api/AppointmentApi/getCalendarData',
+                        url: routeURL + '/api/AppointmentApi/GetCalendarData',
                         type: 'GET',
                         dataType: 'json',
                         success: function (response) {
@@ -52,7 +52,7 @@ function InitializeCalendar() {
 
                     });
                 },
-                evenClick: function (info) {
+                eventClick: function (info) {
                     getEventDetailsByEventId(info.event);
                 }
             });
