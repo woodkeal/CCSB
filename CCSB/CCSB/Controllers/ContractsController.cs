@@ -98,7 +98,6 @@ namespace CCSB.Controllers
                 {
                     _context.Update(contract);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
