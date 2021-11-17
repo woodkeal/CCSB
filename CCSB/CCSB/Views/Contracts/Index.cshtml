@@ -3,11 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
+<style>
+    h1 {
+        text-align: center;
+        margin: auto;
+    }
+    p {
+        text-align: center;
+        margin: auto;
+    }
+</style>
+<h1>Contracten lijst</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Maak nieuw contract aan</a>
 </p>
 <table class="table">
     <thead>
@@ -29,7 +37,7 @@
                 @Html.DisplayNameFor(model => model.DatumTot)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContractId)
+                @Html.DisplayNameFor(model => model.Kenteken)
             </th>
             <th></tb></th>
         </tr>
@@ -53,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.DatumTot)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ContractId)
+                @Html.DisplayFor(modelItem => item.Kenteken)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Kenteken">Edit</a> |

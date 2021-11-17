@@ -4,68 +4,66 @@
     ViewData["Title"] = "Create";
 }
 <style>
-    .row {
-        margin: auto;
-        width: 100%;
+    h1 {
+        text-align: center
     }
-
-    .h1 {
+    div.col-md-4 {
+        text-align: center;
         margin: auto;
-        width: 100%;
     }
-
-    .h4 {
+    form {
+        text-align: center;
         margin: auto;
-        width: 100%;
     }
 </style>
-<h1>Create</h1>
+<h1>Creëer nieuw contract</h1>
+<center>
 
-<h4>Contract</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Voornaam" class="control-label"></label>
-                <input asp-for="Voornaam" class="form-control" />
-                <span asp-validation-for="Voornaam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Achternaam" class="control-label"></label>
-                <input asp-for="Achternaam" class="form-control" />
-                <span asp-validation-for="Achternaam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tussenvoegsels" class="control-label"></label>
-                <input asp-for="Tussenvoegsels" class="form-control" />
-                <span asp-validation-for="Tussenvoegsels" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DatumVan" class="control-label"></label>
-                <input asp-for="DatumVan" class="form-control" />
-                <span asp-validation-for="DatumVan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DatumTot" class="control-label"></label>
-                <input asp-for="DatumTot" class="form-control" />
-                <span asp-validation-for="DatumTot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Kenteken" class="control-label"></label>
-                <input asp-for="Kenteken" class="form-control" />
-                <span asp-validation-for="Kenteken" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">  
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Voornaam" class="control-label"></label>
+                    <input asp-for="Voornaam" class="form-control" required/>
+                    <span asp-validation-for="Voornaam" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Achternaam" class="control-label"></label>
+                    <input asp-for="Achternaam" class="form-control" required/>
+                    <span asp-validation-for="Achternaam" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tussenvoegsels" class="control-label"></label>
+                    <input asp-for="Tussenvoegsels" class="form-control" placeholder="-" />
+                    <span asp-validation-for="Tussenvoegsels" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DatumVan" class="control-label">Begin datum:</label>
+                    <input asp-for="DatumVan" class="form-control" required/>
+                    <span asp-validation-for="DatumVan" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DatumTot" class="control-label">Eind datum:</label>
+                    <input asp-for="DatumTot" class="form-control" required/>
+                    <span asp-validation-for="DatumTot" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kenteken" class="control-label"></label>
+                    <input asp-for="Kenteken" class="form-control" required/>
+                    <span asp-validation-for="Kenteken" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<div>
-    <a asp-action="Index">Terug naar contracten</a>
-</div>
+    </center>
+<form>
+    <div>
+        <a asp-action="Index">Terug naar contracten</a>
+    </div>
+</form>
 
