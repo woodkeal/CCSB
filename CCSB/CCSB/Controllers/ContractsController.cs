@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CCSB.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CCSB.Controllers
 {
+    [Authorize]
     public class ContractsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,8 +22,15 @@ namespace CCSB.Controllers
 
         // GET: Contracts
         public async Task<IActionResult> Index()
-        {
-            return View(await _context.Contracts.ToListAsync());
+        { 
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(await _context.Contracts.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         // GET: Contracts/Details/5
@@ -45,7 +54,15 @@ namespace CCSB.Controllers
         // GET: Contracts/Create
         public IActionResult Create()
         {
-            return View();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         // POST: Contracts/Create
@@ -55,6 +72,7 @@ namespace CCSB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Kenteken,Voornaam,Achternaam,Tussenvoegsels,DatumVan,DatumTot,ContractId")] Contract contract)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(contract);
@@ -96,8 +114,9 @@ namespace CCSB.Controllers
             {
                 try
                 {
-                    _context.Update(contract);
+                    _context.Contracts.Update(contract);
                     await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -110,9 +129,9 @@ namespace CCSB.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index));
             }
-            return View(contract);
+            return View();
         }
 
         // GET: Contracts/Delete/5

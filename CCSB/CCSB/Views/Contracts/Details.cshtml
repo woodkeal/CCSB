@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+        Layout = "~/Views/Shared/_LayoutPages.cshtml";
 }
 <style>
 
@@ -26,7 +27,7 @@
 
     form {
         text-align: center;
-    }   
+    }
 </style>
 <h1>Details</h1>
 
@@ -88,4 +89,4 @@
         <a asp-action="Edit" asp-route-id="@Model.Kenteken">Edit</a> |
         <a asp-action="Index">Terug naar contracten</a>
     </div>
-    </form>
+</form>
