@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211107134940_Create identity tables")]
-    partial class Createidentitytables
+    [Migration("20211118083835_create identity table")]
+    partial class createidentitytable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,6 +108,9 @@ namespace CCSB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
@@ -122,6 +125,8 @@ namespace CCSB.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.ToTable("Appointments");
                 });
 
@@ -133,8 +138,8 @@ namespace CCSB.Migrations
                     b.Property<string>("Achternaam")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AdminId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DatumTot")
                         .HasColumnType("datetime2");
@@ -142,22 +147,7 @@ namespace CCSB.Migrations
                     b.Property<DateTime>("DatumVan")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Tussenvoegsels")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Voornaam")
@@ -183,9 +173,6 @@ namespace CCSB.Migrations
                     b.Property<string>("CustomerId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("KindOfVehicle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -204,9 +191,6 @@ namespace CCSB.Migrations
 
                     b.Property<bool>("PowereSupply")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("LicensePlate");
 
@@ -368,6 +352,15 @@ namespace CCSB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Customer");
+                });
+
+            modelBuilder.Entity("CCSB.Models.Appointment", b =>
+                {
+                    b.HasOne("CCSB.Models.ApplicationUser", "Customer")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("CCSB.Models.Vehicles", b =>

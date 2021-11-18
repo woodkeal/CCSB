@@ -106,6 +106,9 @@ namespace CCSB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
@@ -119,6 +122,8 @@ namespace CCSB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Appointments");
                 });
@@ -166,9 +171,6 @@ namespace CCSB.Migrations
                     b.Property<string>("CustomerId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("KindOfVehicle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -187,9 +189,6 @@ namespace CCSB.Migrations
 
                     b.Property<bool>("PowereSupply")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("LicensePlate");
 
@@ -351,6 +350,15 @@ namespace CCSB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Customer");
+                });
+
+            modelBuilder.Entity("CCSB.Models.Appointment", b =>
+                {
+                    b.HasOne("CCSB.Models.ApplicationUser", "Customer")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("CCSB.Models.Vehicles", b =>

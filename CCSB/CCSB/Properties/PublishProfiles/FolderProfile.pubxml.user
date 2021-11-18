@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\repos\CCSB\Publish</_PublishTargetUrl>
+    <History>True|2021-11-15T22:49:57.1866463Z;True|2021-11-15T21:41:23.8251181+01:00;False|2021-11-15T21:41:02.6746560+01:00;True|2021-11-12T11:44:10.8858417+01:00;</History>
+  </PropertyGroup>
+</Project>

@@ -66,6 +66,7 @@ namespace CCSB.Services
                     Achternaam = model.Achternaam,
                     DatumVan = model.DatumVan,
                     DatumTot = model.DatumTot,
+                    Kenteken = model.Kenteken,
                     ContractId = model.ContractId
                 };
                 _db.Contracts.Add(Contracts);

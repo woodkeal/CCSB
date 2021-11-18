@@ -55,7 +55,7 @@ namespace CCSB.Services
         }
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
-            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("en-US"));
+            var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("nl-NL"));
             if (model != null & model.Id > 0)
             {
                 return 1;
@@ -69,7 +69,8 @@ namespace CCSB.Services
                     AppointmentDate = appointmentDate,
                     UserId = model.UserId,
                 };
-                await _emailSender.SendEmailAsync("0318584@student.rocvantwente.nl", "Groetjes!",
+                var email = _db.Users.FirstOrDefault(u=>u.Id == model.UserId).Email;
+                await _emailSender.SendEmailAsync(email, "Groetjes!",
                     $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
@@ -83,7 +84,18 @@ namespace CCSB.Services
                 {
                     Id = c.Id,
                     Description = c.Description,
-                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm"),
+                    Title = c.Title,
+                }).ToList();
+        }
+        public List<AppointmentViewModel> AllAppointments()
+        {
+            return _db.Appointments.ToList().Select(
+                c => new AppointmentViewModel()
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    AppointmentDate = c.AppointmentDate.ToString("yyyy-MM-dd HH:mm"),
                     Title = c.Title,
                 }).ToList();
         }
