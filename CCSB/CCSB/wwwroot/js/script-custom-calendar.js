@@ -40,7 +40,7 @@ function InitializeCalendar() {
                                         description: data.description,
                                         start: data.appointmentDate,
                                         textColor: "black",
-                                        id: data.id
+                                        id: data.id,
                                     });
                                 })
                             }
@@ -74,7 +74,7 @@ function onShowModal(obj, isEventDetail) {
     else {
         var appointmentdate = obj.start.getDate() + "-" + obj.start.getMonth() + "-" +
             obj.start.getFullYear() + " " + new moment().format("HH:mm")
-        $("#Id").val(0)
+        $("#Id").val(0);
         $("#title").val(obj.title);
         $("#description").val(obj.description);
         $("#appointmentDate").val(appointmentdate);

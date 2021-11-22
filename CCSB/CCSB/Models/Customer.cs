@@ -8,7 +8,6 @@ namespace CCSB.Models
 {
     public class Customer : ApplicationUser
     {
-        public int? CustomerID { get; set; }
         public string City { get; set; }
         public string BankAccount { get; set; }
         public string PostalCode { get; set; }
