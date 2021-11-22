@@ -53,7 +53,8 @@ namespace CCSB.Services
                     AppointmentDate = appointmentDate,
                     CustomerId = model.UserId,
                 };
-                await _emailSender.SendEmailAsync("timhoutman1999@gmail.com", "Groetjes!",
+                var email = _db.Users.FirstOrDefault(u=>u.Id == model.UserId).Email;
+                await _emailSender.SendEmailAsync(email, "Groetjes!",
                     $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
