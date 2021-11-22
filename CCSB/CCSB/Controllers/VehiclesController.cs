@@ -108,7 +108,7 @@ namespace CCSB.Controllers
         {
             if (User.IsInRole("Admin"))
             {
-                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName");
+                ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName");
                 return View();
             }
             else
@@ -131,7 +131,7 @@ namespace CCSB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
             return View(vehicles);
         }
 
@@ -151,7 +151,7 @@ namespace CCSB.Controllers
                 {
                     return NotFound();
                 }
-                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+                ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
                 return View(vehicles);
             }
             else
@@ -166,7 +166,7 @@ namespace CCSB.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,CustomerId")] Vehicles vehicles)
+        public async Task<IActionResult> Edit(string id, [Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,ApplicationUserId")] Vehicles vehicles)
         {
             if (id != vehicles.LicensePlate)
             {
@@ -193,7 +193,7 @@ namespace CCSB.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
             return View(vehicles);
         }
 

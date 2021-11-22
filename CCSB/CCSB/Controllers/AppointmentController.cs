@@ -20,8 +20,6 @@ namespace CCSB.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.AdminList = _appointmentService.GetAdminList();
-
             ViewBag.UserList = _appointmentService.GetUserList();
 
             if (User.Identity.IsAuthenticated)

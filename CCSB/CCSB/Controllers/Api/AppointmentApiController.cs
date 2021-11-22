@@ -53,7 +53,7 @@ namespace CCSB.Controllers
         }
         [HttpGet]
         [Route("GetCalendarData")]
-        public IActionResult GetCalendarData(string userId)
+        public IActionResult GetCalendarData()
         {
             CommonResponse<List<AppointmentViewModel>> commonResponse = new CommonResponse<List<AppointmentViewModel>>();
             try
