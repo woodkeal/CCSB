@@ -128,6 +128,9 @@ namespace CCSB.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(vehicles);
+                Contract contract = new Contract();
+                contract.DatumVan = DateTime.Now;
+                _context.Add(contract);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
