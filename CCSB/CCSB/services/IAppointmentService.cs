@@ -8,7 +8,6 @@ namespace CCSB.Services
 {
     public interface IAppointmentService
     {
-        public List<AdminViewModel> GetAdminList();
         public List<UserViewModel> GetUserList();
         public Task<int> AddUpdate(AppointmentViewModel model);
         public List<AppointmentViewModel> UserAppointments(string userid);

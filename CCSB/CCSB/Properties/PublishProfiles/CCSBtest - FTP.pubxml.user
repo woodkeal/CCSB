@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAm5778PiqEki+3jhhIdLoiAAAAAACAAAAAAAQZgAAAAEAACAAAAACScyPPZLaohtV8HRU7U0wkPPppDSY1GIAperqkLP0zQAAAAAOgAAAAAIAACAAAABxNUeQq38f+cgRZhBn5/HNemZsWdOqqLyebingeMr/JYAAAADFOYXjYOMskEabSrCoQWHltJggu0hUa9yuyI7x4d/yWOPFNxWJhMOy9hOg1r58BIbf5qPEYijHT2U+lXJHqknNLcINmMA6R3Ir/nwOJbaHSqGGrvUbd4BHAQdXeH96ERwlgR4xkDqqvs42ehUdvWoN9FXWezzQj0BVnnw/kM8z2kAAAACd8poMx0eEaTa8unSI0L97oWytfWn1b69AOi+y2a4ycmBnGk1QjprFSUFkcphFrxPuu7XqYNgFy7ny9iCg8W4L</EncryptedPassword>
+    <_PublishTargetUrl>ftp://waws-prod-am2-443.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+    <History>True|2021-11-17T22:55:02.8788281Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>11/08/2021 12:15:03</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>11/17/2021 23:52:21</publishTime>
+    </File>
+    <File Include="CCSB.deps.json">
+      <publishTime>11/17/2021 23:52:30</publishTime>
+    </File>
+    <File Include="CCSB.dll">
+      <publishTime>11/17/2021 23:52:25</publishTime>
+    </File>
+    <File Include="CCSB.exe">
+      <publishTime>11/17/2021 23:52:25</publishTime>
+    </File>
+    <File Include="CCSB.pdb">
+      <publishTime>11/17/2021 23:52:25</publishTime>
+    </File>
+    <File Include="CCSB.runtimeconfig.json">
+      <publishTime>11/17/2021 23:52:28</publishTime>
+    </File>
+    <File Include="CCSB.Views.dll">
+      <publishTime>11/17/2021 23:52:27</publishTime>
+    </File>
+    <File Include="CCSB.Views.pdb">
+      <publishTime>11/17/2021 23:52:27</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:40</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>02/09/2021 02:32:20</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="Humanizer.dll">
+      <publishTime>06/02/2020 15:07:58</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="libman.json">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="Mailjet.Client.dll">
+      <publishTime>06/25/2021 04:35:34</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.Internal.dll">
+      <publishTime>09/27/2021 03:29:34</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.KeyDerivation.dll">
+      <publishTime>09/27/2021 03:29:34</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll">
+      <publishTime>09/27/2021 03:30:16</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Identity.UI.dll">
+      <publishTime>09/27/2021 03:31:44</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Identity.UI.Views.V4.dll">
+      <publishTime>09/27/2021 03:31:50</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.Razor.Extensions.dll">
+      <publishTime>09/27/2021 03:29:28</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll">
+      <publishTime>09/27/2021 03:31:44</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Razor.Language.dll">
+      <publishTime>09/27/2021 03:29:20</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/15/2020 00:39:12</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>11/12/2020 01:15:12</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.dll">
+      <publishTime>11/12/2020 01:14:40</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Razor.dll">
+      <publishTime>09/27/2021 03:29:24</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>11/12/2020 01:16:26</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.dll">
+      <publishTime>08/26/2020 01:24:48</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>09/22/2021 17:16:10</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>09/22/2021 17:16:20</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>09/22/2021 17:16:28</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>09/22/2021 17:16:30</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.dll">
+      <publishTime>06/15/2021 21:12:46</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyModel.dll">
+      <publishTime>10/19/2020 20:49:02</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.FileProviders.Embedded.dll">
+      <publishTime>09/27/2021 03:28:50</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Core.dll">
+      <publishTime>09/27/2021 03:29:36</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Stores.dll">
+      <publishTime>09/27/2021 03:30:16</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.dll">
+      <publishTime>05/18/2020 22:11:54</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>10/19/2019 01:39:24</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>10/19/2019 01:40:20</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>10/19/2019 01:41:02</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>10/19/2019 01:48:48</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>10/19/2019 01:43:40</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
+      <publishTime>02/09/2021 02:32:08</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>02/09/2021 02:32:16</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>02/09/2021 02:32:18</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>02/09/2021 02:32:18</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>02/09/2021 02:32:14</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>02/09/2021 02:32:12</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>02/09/2021 02:32:18</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>11/09/2019 01:56:44</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>08/26/2020 01:25:12</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/lib/net5.0/dotnet-aspnet-codegenerator-design.exe">
+      <publishTime>02/09/2021 02:32:20</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/25/2020 22:34:56</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb">
+      <publishTime>08/25/2020 22:31:56</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/lib/net5.0/dotnet-aspnet-codegenerator-design.exe">
+      <publishTime>02/09/2021 02:32:20</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/25/2020 22:35:06</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb">
+      <publishTime>08/25/2020 22:31:56</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/25/2020 22:34:56</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb">
+      <publishTime>08/25/2020 22:31:56</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/25/2020 22:34:56</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb">
+      <publishTime>08/25/2020 22:31:56</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>08/26/2020 01:24:48</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll">
+      <publishTime>11/15/2019 09:53:44</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>11/15/2019 09:53:46</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>11/05/2016 05:55:44</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>11/05/2016 05:55:46</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>11/15/2019 09:37:04</publishTime>
+    </File>
+    <File Include="System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>12/12/2020 03:40:42</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>10/19/2019 01:38:18</publishTime>
+    </File>
+    <File Include="System.Runtime.Caching.dll">
+      <publishTime>11/15/2019 09:37:36</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>11/15/2019 09:37:42</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>11/17/2021 23:52:31</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>11/09/2021 20:26:34</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/css/site.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/favicon.ico">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/js/site.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/bootstrap/LICENSE/LICENSE">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery-validation/LICENSE.md">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery/dist/jquery.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery/dist/jquery.min.js">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery/dist/jquery.min.map">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/Identity/lib/jquery/LICENSE.txt">
+      <publishTime>09/27/2021 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/notify.min.js">
+      <publishTime>10/18/2021 15:28:01</publishTime>
+    </File>
+    <File Include="wwwroot/js/script-custom-calendar.js">
+      <publishTime>11/09/2021 20:21:45</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>10/09/2021 16:44:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Camper.png">
+      <publishTime>10/04/2021 12:23:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/forster-randstadcampers.jpg">
+      <publishTime>10/06/2021 14:02:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/header-camper-kopen.jpg">
+      <publishTime>10/14/2021 12:04:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Icons/bolt-solid.svg">
+      <publishTime>10/13/2021 15:07:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Icons/history-solid.svg">
+      <publishTime>10/06/2021 16:04:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Icons/id-card-solid.svg">
+      <publishTime>10/13/2021 15:07:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Icons/square-parking-solid.svg">
+      <publishTime>10/13/2021 15:07:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/Images/Logo.png">
+      <publishTime>10/29/2021 16:45:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>10/12/2021 08:54:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/videos/Hotra_Camperpark_Website_Header_1920_low.mp4">
+      <publishTime>10/14/2021 12:04:12</publishTime>
+    </File>
+    <File Include="wwwroot/select2/css/select2.css">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/css/select2.min.css">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/af.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/af.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ar.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ar.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/az.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/az.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bg.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bg.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bn.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bn.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bs.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/bs.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ca.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ca.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/cs.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/cs.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/da.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/da.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/de.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/de.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/dsb.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/dsb.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/el.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/el.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/en.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/en.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/es.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/es.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/et.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/et.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/eu.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/eu.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fa.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fa.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fi.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fi.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fr.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/fr.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/gl.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/gl.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/he.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/he.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hi.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hi.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hr.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hr.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hsb.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hsb.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hu.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hu.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hy.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/hy.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/id.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/id.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/is.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/is.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/it.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/it.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ja.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ja.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ka.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ka.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/km.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/km.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ko.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ko.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/lt.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/lt.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/lv.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/lv.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/mk.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/mk.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ms.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ms.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/nb.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/nb.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ne.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ne.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/nl.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/nl.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pl.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pl.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ps.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ps.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pt-BR.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pt-BR.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pt.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/pt.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ro.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ro.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ru.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/ru.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sk.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sk.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sl.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sl.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sq.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sq.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sr-Cyrl.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sr-Cyrl.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sr.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sr.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sv.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/sv.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/th.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/th.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/tk.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/tk.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/tr.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/tr.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/uk.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/uk.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/vi.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/vi.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/zh-CN.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/zh-CN.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/zh-TW.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/i18n/zh-TW.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/select2.full.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/select2.full.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/select2.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/select2/js/select2.min.js">
+      <publishTime>10/13/2021 14:53:23</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/12/2020 01:15:14</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:20:06</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/12/2020 01:14:42</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/12/2020 01:16:28</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

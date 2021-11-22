@@ -22,22 +22,6 @@ namespace CCSB.Services
             _emailSender = emailSender;
         }
 
-        public List<AdminViewModel> GetAdminList()
-        {
-            var Admins = (from user in _db.Users
-                          join userRole in _db.UserRoles on user.Id equals userRole.UserId
-                          join role in _db.Roles.Where(x => x.Name == Helper.Admin) on userRole.RoleId equals role.Id
-                          select new AdminViewModel
-                          {
-                              Id = user.Id,
-                              Name = string.IsNullOrEmpty(user.MiddleName) ?
-                              user.FirstName + " " + user.LastName :
-                              user.FirstName + " " + user.MiddleName + " " + user.LastName
-                          }
-                         ).OrderBy(u => u.Name).ToList();
-            return Admins;
-        }
-
         public List<UserViewModel> GetUserList()
         {
             var Users = (from user in _db.Users
@@ -67,9 +51,10 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
-                    UserId = model.UserId,
+                    CustomerId = model.UserId,
                 };
-                await _emailSender.SendEmailAsync("timhoutman1999@gmail.com", "Groetjes!",
+                var email = _db.Users.FirstOrDefault(u=>u.Id == model.UserId).Email;
+                await _emailSender.SendEmailAsync(email, "Groetjes!",
                     $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
@@ -78,7 +63,7 @@ namespace CCSB.Services
         }
         public List<AppointmentViewModel> UserAppointments(string userid)
         {
-            return _db.Appointments.Where(a => a.UserId == userid).ToList().Select(
+            return _db.Appointments.Where(a => a.CustomerId == userid).ToList().Select(
                 c => new AppointmentViewModel()
                 {
                     Id = c.Id,
@@ -108,8 +93,8 @@ namespace CCSB.Services
                     Description = c.Description,
                     AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
                     Title = c.Title,
-                    UserId = c.UserId,
-                    UserName = _db.Users.Where(u => u.Id == c.UserId).Select(u => u.FullName).FirstOrDefault(),
+                    UserId = c.CustomerId,
+                    UserName = _db.Users.Where(u => u.Id == c.CustomerId).Select(u => u.FullName).FirstOrDefault(),
                 }).SingleOrDefault();
         }
     }
