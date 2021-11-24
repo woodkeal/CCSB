@@ -15,5 +15,7 @@ namespace CCSB.Models.ViewModels
         public string AdminName { get; set; }
         public string UserName { get; set; }
 
+     
+
     }
 }
