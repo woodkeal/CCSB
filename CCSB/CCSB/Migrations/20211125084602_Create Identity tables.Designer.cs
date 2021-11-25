@@ -10,13 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<< HEAD:CCSB/CCSB/Migrations/20211125081238_Create Identity tables.Designer.cs
-    [Migration("20211125081238_Create Identity tables")]
+    [Migration("20211125084602_Create Identity tables")]
     partial class CreateIdentitytables
-=======
-    [Migration("20211122172218_Create identity tables")]
-    partial class Createidentitytables
->>>>>>> e824922419fd4b1f601ac8c841ee2218a5d0669c:CCSB new/CCSB/CCSB/Migrations/20211122172218_Create identity tables.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -113,6 +108,9 @@ namespace CCSB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
@@ -126,6 +124,8 @@ namespace CCSB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CustomerId");
 
@@ -354,6 +354,10 @@ namespace CCSB.Migrations
                 {
                     b.HasOne("CCSB.Models.ApplicationUser", "Customer")
                         .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CCSB.Models.Customer", null)
+                        .WithMany("Appointments")
                         .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
@@ -434,6 +438,8 @@ namespace CCSB.Migrations
 
             modelBuilder.Entity("CCSB.Models.Customer", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618

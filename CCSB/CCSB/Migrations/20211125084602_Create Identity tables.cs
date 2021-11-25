@@ -55,26 +55,6 @@ namespace CCSB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<< HEAD:CCSB/CCSB/Migrations/20211125081238_Create Identity tables.cs
-=======
-                name: "Contracts",
-                columns: table => new
-                {
-                    Kenteken = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Voornaam = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Achternaam = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tussenvoegsels = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DatumVan = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DatumTot = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ContractId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contracts", x => x.Kenteken);
-                });
-
-            migrationBuilder.CreateTable(
->>>>>>> e824922419fd4b1f601ac8c841ee2218a5d0669c:CCSB new/CCSB/CCSB/Migrations/20211122172218_Create identity tables.cs
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -104,24 +84,21 @@ namespace CCSB.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-<<<<<<< HEAD:CCSB/CCSB/Migrations/20211125081238_Create Identity tables.cs
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-=======
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
->>>>>>> e824922419fd4b1f601ac8c841ee2218a5d0669c:CCSB new/CCSB/CCSB/Migrations/20211122172218_Create identity tables.cs
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.Id);
                     table.ForeignKey(
-<<<<<<< HEAD:CCSB/CCSB/Migrations/20211125081238_Create Identity tables.cs
                         name: "FK_Appointments_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
-=======
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Appointments_AspNetUsers_CustomerId",
                         column: x => x.CustomerId,
->>>>>>> e824922419fd4b1f601ac8c841ee2218a5d0669c:CCSB new/CCSB/CCSB/Migrations/20211122172218_Create identity tables.cs
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
