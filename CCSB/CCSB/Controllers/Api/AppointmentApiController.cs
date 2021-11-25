@@ -27,6 +27,7 @@ namespace CCSB.Controllers
             loginUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
+        //saves the Calendar data
         [HttpPost]
         [Route("SaveCalendarData")]
         public IActionResult SaveCalendarData(AppointmentViewModel data)
@@ -35,15 +36,19 @@ namespace CCSB.Controllers
             try
             {
                 commonResponse.Status = _appointmentService.AddUpdate(data).Result;
+                //gives status message if succesfull 
                 if (commonResponse.Status == 1)
                 {
+                    //gives status message if update succesfull 
                     commonResponse.Message = Helper.AppointmentUpdated;
                 }
                 else if (commonResponse.Status == 2)
                 {
+                    //gives status message if add succesfull 
                     commonResponse.Message = Helper.AppointmentAdded;
                 }
             }
+            //gives failure code
             catch (Exception ex)
             {
                 commonResponse.Message = ex.Message;
@@ -51,6 +56,7 @@ namespace CCSB.Controllers
             }
             return Ok(commonResponse);
         }
+        //gets the calendar data
         [HttpGet]
         [Route("GetCalendarData")]
         public IActionResult GetCalendarData()
@@ -58,18 +64,20 @@ namespace CCSB.Controllers
             CommonResponse<List<AppointmentViewModel>> commonResponse = new CommonResponse<List<AppointmentViewModel>>();
             try
             {
+                //gets calendar data if logged in as a user 
                 if (role == Helper.User)
                 {
                     commonResponse.Dataenum = _appointmentService.UserAppointments(loginUserId);
                     commonResponse.Status = Helper.Succes_code;
                 }
-                else if(role == Helper.Admin)
+                //gets calendar data of all the users if logged in as an admin 
+                else if (role == Helper.Admin)
                 {
                     commonResponse.Dataenum = _appointmentService.AllAppointments();
                     commonResponse.Status = Helper.Succes_code;
                 }
-
             }
+            //gives failure code
             catch (Exception ex)
             {
                 commonResponse.Message = ex.Message;
@@ -77,7 +85,7 @@ namespace CCSB.Controllers
             }
             return Ok(commonResponse);
         }
-
+        //gets calendar data per appointment 
         [HttpGet]
         [Route("GetCalendarDataById/{id}")]
         public IActionResult GetCalendarDataById(int id)
@@ -88,6 +96,7 @@ namespace CCSB.Controllers
                 commonResponse.Dataenum = _appointmentService.GetById(id);
                 commonResponse.Status = Helper.Succes_code;
             }
+            //gives failure code
             catch (Exception ex)
             {
                 commonResponse.Message = ex.Message;

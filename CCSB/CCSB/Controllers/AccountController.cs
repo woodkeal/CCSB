@@ -11,6 +11,7 @@ using CCSB.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using System.Text.RegularExpressions;
 
 namespace CCSB.Models
 {
@@ -81,7 +82,7 @@ namespace CCSB.Models
         public async Task<IActionResult> Register(RegisterViewModel model) 
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && checkPostalCode(model.PostalCode))
             {
                 //Passed data from register form
                 Customer user = new Customer()
@@ -119,9 +120,24 @@ namespace CCSB.Models
                     ModelState.AddModelError("", error.Description);
                 }
             }
+
             return View();
         }
         
+        public bool checkPostalCode(string postalCodeChecked)
+        {
+            string strRegex = "^[1-9][0-9]{3} ?(?!sa|sd|ss)[A-Z]{2}$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(postalCodeChecked))
+            {
+                return true;
+            }
+            else
+            {
+                ModelState.AddModelError("PostalCode", "dit is geen geldige postcode");
+                return false;
+            }
+        }
         public async Task<IActionResult> LogOff()
         {
             //Logs out user

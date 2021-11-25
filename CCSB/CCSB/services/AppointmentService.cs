@@ -37,11 +37,13 @@ namespace CCSB.Services
               ).OrderBy(u => u.Name).ToList();
             return Users;
         }
+        //adds an appointment
         public async Task<int> AddUpdate(AppointmentViewModel model)
         {
             var appointmentDate = DateTime.Parse(model.AppointmentDate, CultureInfo.CreateSpecificCulture("nl-NL"));
             if (model != null & model.Id > 0)
             {
+                //gives succescode
                 return 1;
             }
             else
@@ -51,19 +53,21 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
-                    CustomerId = model.UserId,
+                    ApplicationUserId = model.UserId,
                 };
+                //sends email to the logged in user if appointment is made.
                 var email = _db.Users.FirstOrDefault(u=>u.Id == model.UserId).Email;
                 await _emailSender.SendEmailAsync(email, "Groetjes!",
-                    $"Er is een afspraak voor u ingepland! Deze moet door u worden bevestigd.");
+                    $"Er is een afspraak voor u ingepland!");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
                 return 2;
             }
         }
+        //gets the appointments of users
         public List<AppointmentViewModel> UserAppointments(string userid)
         {
-            return _db.Appointments.Where(a => a.CustomerId == userid).ToList().Select(
+            return _db.Appointments.Where(a => a.ApplicationUserId == userid).ToList().Select(
                 c => new AppointmentViewModel()
                 {
                     Id = c.Id,
@@ -72,6 +76,7 @@ namespace CCSB.Services
                     Title = c.Title,
                 }).ToList();
         }
+        //gets the appointments of all the users for admin.
         public List<AppointmentViewModel> AllAppointments()
         {
             return _db.Appointments.ToList().Select(
@@ -83,7 +88,7 @@ namespace CCSB.Services
                     Title = c.Title,
                 }).ToList();
         }
-
+        //gets specific appointments by the ID 
         public AppointmentViewModel GetById(int id)
         {
             return _db.Appointments.Where(a => a.Id == id).ToList().Select(
@@ -93,8 +98,8 @@ namespace CCSB.Services
                     Description = c.Description,
                     AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
                     Title = c.Title,
-                    UserId = c.CustomerId,
-                    UserName = _db.Users.Where(u => u.Id == c.CustomerId).Select(u => u.FullName).FirstOrDefault(),
+                    UserId = c.ApplicationUserId,
+                    UserName = _db.Users.Where(u => u.Id == c.ApplicationUserId).Select(u => u.FullName).FirstOrDefault(),
                 }).SingleOrDefault();
         }
     }
