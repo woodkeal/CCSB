@@ -13,7 +13,7 @@ namespace CCSB.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime AppointmentDate { get; set; }
-        public string CustomerId { get; set; }
+        public string ApplicationUserId { get; set; }
         public virtual ApplicationUser Customer { get; set; }
     }
 }

@@ -106,6 +106,9 @@ namespace CCSB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
@@ -118,10 +121,9 @@ namespace CCSB.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CustomerId");
 
@@ -159,37 +161,31 @@ namespace CCSB.Migrations
             modelBuilder.Entity("CCSB.Models.Vehicles", b =>
                 {
                     b.Property<string>("LicensePlate")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Brand")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("KindOfVehicle")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Length")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.Property<int>("Mileage")
-                        .HasMaxLength(10)
                         .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PowereSupply")
                         .HasColumnType("bit");
@@ -350,9 +346,6 @@ namespace CCSB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerID")
-                        .HasColumnType("int");
-
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -364,6 +357,10 @@ namespace CCSB.Migrations
                 {
                     b.HasOne("CCSB.Models.ApplicationUser", "Customer")
                         .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CCSB.Models.Customer", null)
+                        .WithMany("Appointments")
                         .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
@@ -435,6 +432,8 @@ namespace CCSB.Migrations
 
             modelBuilder.Entity("CCSB.Models.Customer", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618

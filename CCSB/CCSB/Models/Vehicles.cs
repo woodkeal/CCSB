@@ -40,6 +40,6 @@ namespace CCSB.Models
 
         [DisplayName("Gebruiker")]
         public string ApplicationUserId { get; set; }
-        public ApplicationUser Customer { get; set; }
+        public virtual ApplicationUser Customer { get; set; }
     }
 }

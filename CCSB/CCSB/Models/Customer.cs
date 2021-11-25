@@ -26,6 +26,8 @@ namespace CCSB.Models
         public string Address { get; set; }
 
         //Navigation Property
-        public List<Vehicles> Vehicles { get; set; }
+        public ICollection<Vehicles> Vehicles { get; set; }
+
+        public ICollection<Appointment> Appointments { get; set; }
     }
 }

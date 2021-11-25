@@ -51,7 +51,7 @@ namespace CCSB.Services
                     Title = model.Title,
                     Description = model.Description,
                     AppointmentDate = appointmentDate,
-                    CustomerId = model.UserId,
+                    ApplicationUserId = model.UserId,
                 };
                 var email = _db.Users.FirstOrDefault(u=>u.Id == model.UserId).Email;
                 await _emailSender.SendEmailAsync(email, "Groetjes!",
@@ -63,7 +63,7 @@ namespace CCSB.Services
         }
         public List<AppointmentViewModel> UserAppointments(string userid)
         {
-            return _db.Appointments.Where(a => a.CustomerId == userid).ToList().Select(
+            return _db.Appointments.Where(a => a.ApplicationUserId == userid).ToList().Select(
                 c => new AppointmentViewModel()
                 {
                     Id = c.Id,
@@ -93,8 +93,8 @@ namespace CCSB.Services
                     Description = c.Description,
                     AppointmentDate = c.AppointmentDate.ToString("d-MM-yyyy HH:mm"),
                     Title = c.Title,
-                    UserId = c.CustomerId,
-                    UserName = _db.Users.Where(u => u.Id == c.CustomerId).Select(u => u.FullName).FirstOrDefault(),
+                    UserId = c.ApplicationUserId,
+                    UserName = _db.Users.Where(u => u.Id == c.ApplicationUserId).Select(u => u.FullName).FirstOrDefault(),
                 }).SingleOrDefault();
         }
     }

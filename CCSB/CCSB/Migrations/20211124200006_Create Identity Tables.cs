@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CCSB.Migrations
 {
-    public partial class Createidentitytables : Migration
+    public partial class CreateIdentityTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -101,11 +101,18 @@ namespace CCSB.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Appointments_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Appointments_AspNetUsers_CustomerId",
                         column: x => x.CustomerId,
@@ -203,13 +210,13 @@ namespace CCSB.Migrations
                 name: "Vehicles",
                 columns: table => new
                 {
-                    LicensePlate = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Mileage = table.Column<int>(type: "int", maxLength: 10, nullable: false),
-                    Length = table.Column<int>(type: "int", maxLength: 3, nullable: false),
+                    LicensePlate = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Mileage = table.Column<int>(type: "int", nullable: false),
+                    Length = table.Column<int>(type: "int", nullable: false),
                     PowereSupply = table.Column<bool>(type: "bit", nullable: false),
-                    Brand = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Model = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    KindOfVehicle = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KindOfVehicle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
@@ -229,6 +236,11 @@ namespace CCSB.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Appointments_ApplicationUserId",
+                table: "Appointments",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_CustomerId",
