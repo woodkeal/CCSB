@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CCSB.Utility
@@ -49,5 +50,20 @@ namespace CCSB.Utility
 
             return items.OrderBy(s=> s.Text).ToList();
         }
+
+         /* public static bool test(string plate) {
+            List<string> plates = new List<string>
+            {
+                "XX-99-99", "99-99-XX", "99-XX-99", "XX-99-XX", "XX-XX-99", "99-XX-XX", "99-XXX-9", "9-XXX-99", "XX-999-X", "X-999-XX", "X-999-XX", "9-XX-999", "999-XX-9"
+            };
+
+            foreach (var character in plate)
+            {
+                if (character == )
+            }
+
+            return false;
+        } */
     }
 }
+    

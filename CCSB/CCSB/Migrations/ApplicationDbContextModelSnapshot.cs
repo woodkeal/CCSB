@@ -112,18 +112,20 @@ namespace CCSB.Migrations
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Appointments");
                 });
@@ -170,13 +172,11 @@ namespace CCSB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Length")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Mileage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Mileage")
+                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -330,18 +330,19 @@ namespace CCSB.Migrations
                     b.HasBaseType("CCSB.Models.ApplicationUser");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BankAccount")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerID")
-                        .HasColumnType("int");
-
                     b.Property<string>("PostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Customer");
@@ -352,6 +353,10 @@ namespace CCSB.Migrations
                     b.HasOne("CCSB.Models.ApplicationUser", "Customer")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CCSB.Models.Customer", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
@@ -431,6 +436,8 @@ namespace CCSB.Migrations
 
             modelBuilder.Entity("CCSB.Models.Customer", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618

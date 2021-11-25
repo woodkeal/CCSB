@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace CCSB.Controllers
 {
+    
     [Authorize]
     public class AppointmentController : Controller
     {
+        //the main controller for the page
         private readonly IAppointmentService _appointmentService;
         public AppointmentController(IAppointmentService appointmentService)
         {
@@ -20,8 +22,6 @@ namespace CCSB.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.AdminList = _appointmentService.GetAdminList();
-
             ViewBag.UserList = _appointmentService.GetUserList();
 
             if (User.Identity.IsAuthenticated)

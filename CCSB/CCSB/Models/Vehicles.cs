@@ -16,11 +16,11 @@ namespace CCSB.Models
 
         [DisplayName("Kilometer Stand")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
-        public string Mileage { get; set; }
+        public int Mileage { get; set; }
 
         [DisplayName("Lengte")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
-        public string Length { get; set; }
+        public int Length { get; set; }
 
         [DisplayName("Stroom")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
@@ -37,7 +37,9 @@ namespace CCSB.Models
         [DisplayName("Soort")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string KindOfVehicle { get; set; }
+
+        [DisplayName("Gebruiker")]
         public string ApplicationUserId { get; set; }
-        public ApplicationUser Customer { get; set; }
+        public virtual ApplicationUser Customer { get; set; }
     }
 }

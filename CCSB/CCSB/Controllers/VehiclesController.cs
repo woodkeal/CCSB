@@ -9,6 +9,8 @@ using CCSB.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using CCSB.Utility;
+using System.Text.RegularExpressions;
 
 namespace CCSB.Controllers
 {
@@ -25,19 +27,20 @@ namespace CCSB.Controllers
         [Authorize]
         public async Task<IActionResult> Index(string option, string search)
         {
-            if (User.IsInRole("User")) {
+            if (User.IsInRole("User"))
+            {
                 //Gives list results based on license plate from the logged in user
                 if (option == "License")
                 {
-                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
-                    x.LicensePlate == search && x.Customer.Email == User.Identity.Name || 
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x =>
+                    x.LicensePlate == search && x.Customer.Email == User.Identity.Name ||
                     x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
                 }
                 //Gives list results based on length plate from the logged in user
                 if (option == "Length")
                 {
-                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => 
-                    x.Length == search && x.Customer.Email == User.Identity.Name || 
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x =>
+                    x.Length.ToString() == search && x.Customer.Email == User.Identity.Name ||
                     x.Customer.Email == User.Identity.Name && search == null).ToListAsync());
                 }
                 //Gives list results from the logged in user
@@ -68,7 +71,7 @@ namespace CCSB.Controllers
                 //Gives list results based on length from all users
                 if (option == "Length")
                 {
-                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Length == search || search == null).ToListAsync());
+                    return View(await _context.Vehicles.Include(v => v.Customer).Where(x => x.Length.ToString() == search || search == null).ToListAsync());
                 }
                 //Gives list results from all users
                 else
@@ -77,7 +80,8 @@ namespace CCSB.Controllers
                     return View(await applicationDbContext.ToListAsync());
                 }
             }
-            else {
+            else
+            {
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -108,8 +112,7 @@ namespace CCSB.Controllers
         {
             if (User.IsInRole("Admin"))
             {
-                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName");
-                Random randomID = new Random(Guid.NewGuid().GetHashCode());
+                ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName");
                 return View();
             }
             else
@@ -124,23 +127,26 @@ namespace CCSB.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        // Voeg Vehicles & Contract toe
         public async Task<IActionResult> Create([Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,ApplicationUserId")] Vehicles vehicles)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vehicles);
-                Contract contract = new Contract();
-                contract.DateCreated = DateTime.Now;
-                _context.Add(contract);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (LicenseplateValidator(vehicles.LicensePlate))
+                {
+                    _context.Add(vehicles);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Gegevens konden niet verwerkt worden.");
+                }
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId, vehicles.LicensePlate);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
             return View(vehicles);
         }
 
-        // GET: Vehicles/Edit/Pagina ID
+        // GET: Vehicles/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
@@ -156,7 +162,7 @@ namespace CCSB.Controllers
                 {
                     return NotFound();
                 }
-                ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+                ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
                 return View(vehicles);
             }
             else
@@ -165,13 +171,13 @@ namespace CCSB.Controllers
             }
         }
 
-        // POST: Vehicles/Edit/Pagina ID
+        // POST: Vehicles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,CustomerId")] Vehicles vehicles)
+        public async Task<IActionResult> Edit(string id, [Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,ApplicationUserId")] Vehicles vehicles)
         {
             if (id != vehicles.LicensePlate)
             {
@@ -198,11 +204,11 @@ namespace CCSB.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
             return View(vehicles);
         }
 
-        // GET: Vehicles/Delete/Pagina ID
+        // GET: Vehicles/Delete/5
         [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
@@ -222,7 +228,7 @@ namespace CCSB.Controllers
             return View(vehicles);
         }
 
-        // POST: Vehicles/Delete/Pagina ID
+        // POST: Vehicles/Delete/5
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -237,6 +243,122 @@ namespace CCSB.Controllers
         private bool VehiclesExists(string id)
         {
             return _context.Vehicles.Any(e => e.LicensePlate == id);
+        }
+
+        private bool LicenseplateValidator(string plate)
+        {
+            string acceptedNumbers = "1239456789";
+            string acceptedChars = "GHJKLNPRSTXZ";
+
+            // 1
+            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
+                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 2
+            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
+                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 3
+            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
+                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 4
+            if (acceptedChars.Contains(plate.Substring(0, 1)) && acceptedChars.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedNumbers.Contains(plate.Substring(3, 1))
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(6, 1)) && acceptedChars.Contains(plate.Substring(7, 1)))
+            {
+                return true;
+            }
+            // 5
+            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
+                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 6
+            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
+                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 7
+            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
+                && acceptedChars.Contains(plate.Substring(4)) && acceptedChars.Contains(plate.Substring(5))
+                && plate.Substring(6) == "-" && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 8
+            if (acceptedNumbers.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
+                && acceptedChars.Contains(plate.Substring(2)) && acceptedChars.Contains(plate.Substring(3))
+                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 9
+            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
+                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
+                && acceptedNumbers.Contains(plate.Substring(4)) && acceptedNumbers.Contains(plate.Substring(5))
+                && plate.Substring(6) == "-" && acceptedChars.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 10
+            else if (acceptedChars.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(2)) && acceptedNumbers.Contains(plate.Substring(3))
+                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
+                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 11
+            else if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
+                && acceptedChars.Contains(plate.Substring(2)) && plate.Substring(3) == "-"
+                && acceptedNumbers.Contains(plate.Substring(4)) && acceptedNumbers.Contains(plate.Substring(5))
+                && plate.Substring(6) == "-" && acceptedChars.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 13
+            else if (acceptedNumbers.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
+                && acceptedChars.Contains(plate.Substring(2)) && acceptedChars.Contains(plate.Substring(3))
+                && plate.Substring(4) == "-" && acceptedNumbers.Contains(plate.Substring(5))
+                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            // 14
+            else if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
+                && acceptedNumbers.Contains(plate.Substring(2)) && plate.Substring(3) == "-"
+                && acceptedChars.Contains(plate.Substring(4)) && acceptedChars.Contains(plate.Substring(5))
+                && plate.Substring(6) == "-" && acceptedNumbers.Contains(plate.Substring(7)))
+            {
+                return true;
+            }
+            else
+            {
+                ModelState.AddModelError("LicensePlate", "Dit is geen geldige kenteken.");
+                return false;
+            }
         }
     }
 }

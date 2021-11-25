@@ -18,7 +18,7 @@ namespace CCSB.Models
         public int ContractId { get;set;}
         // Appointmentdate van Appointment word begin datum van het contract.
         private DateTime Appointmentdate = DateTime.Now;
-        private DateTime ContractEnd = DateTime.Now.AddYears(1);
+        private DateTime DatumTot = DateTime.Now.AddYears(1);
         // Appointmentdate + 1 jaar (standaard contract lengte)
         public DateTime DateCreated
         {
