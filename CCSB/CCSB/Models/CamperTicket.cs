@@ -7,9 +7,7 @@ namespace CCSB.Models
 {
     public class CamperTicket
     {
-        public string Mileage { get; set; }
         public string Pk { get; set; }
-        public string Kind { get; set; }
         public bool TowBar { get; set; }
     }
 }

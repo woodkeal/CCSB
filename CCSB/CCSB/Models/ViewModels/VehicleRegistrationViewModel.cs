@@ -14,7 +14,7 @@ namespace CCSB.Models.ViewModels
         public string Brand { get; set; }
         public string Model { get; set; }
         public string KindOfVehicle { get; set; }
-        public string CustomerId { get; set; }
+        public string UserId { get; set; }
         public string UserName { get; set; }
 
         // Items for ticket
