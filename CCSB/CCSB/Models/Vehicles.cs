@@ -37,7 +37,6 @@ namespace CCSB.Models
         [DisplayName("Soort")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string KindOfVehicle { get; set; }
-
         public string ApplicationUserId { get; set; }
         public ApplicationUser Customer { get; set; }
     }

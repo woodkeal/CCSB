@@ -109,6 +109,7 @@ namespace CCSB.Controllers
             if (User.IsInRole("Admin"))
             {
                 ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName");
+                Random randomID = new Random(Guid.NewGuid().GetHashCode());
                 return View();
             }
             else
@@ -123,22 +124,23 @@ namespace CCSB.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
+        // Voeg Vehicles & Contract toe
         public async Task<IActionResult> Create([Bind("LicensePlate,Mileage,Length,PowereSupply,Brand,Model,KindOfVehicle,ApplicationUserId")] Vehicles vehicles)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(vehicles);
                 Contract contract = new Contract();
-                contract.DatumVan = DateTime.Now;
+                contract.DateCreated = DateTime.Now;
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId);
+            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "FullName", vehicles.ApplicationUserId, vehicles.LicensePlate);
             return View(vehicles);
         }
 
-        // GET: Vehicles/Edit/5
+        // GET: Vehicles/Edit/Pagina ID
         [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
@@ -163,7 +165,7 @@ namespace CCSB.Controllers
             }
         }
 
-        // POST: Vehicles/Edit/5
+        // POST: Vehicles/Edit/Pagina ID
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -200,7 +202,7 @@ namespace CCSB.Controllers
             return View(vehicles);
         }
 
-        // GET: Vehicles/Delete/5
+        // GET: Vehicles/Delete/Pagina ID
         [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
@@ -220,7 +222,7 @@ namespace CCSB.Controllers
             return View(vehicles);
         }
 
-        // POST: Vehicles/Delete/5
+        // POST: Vehicles/Delete/Pagina ID
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
