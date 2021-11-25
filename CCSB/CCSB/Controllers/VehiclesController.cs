@@ -251,26 +251,26 @@ namespace CCSB.Controllers
             string acceptedChars = "GHJKLNPRSTXZ";
 
             // 1
-            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
-                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            if (acceptedChars.Contains(plate.Substring(0, 1)) && acceptedChars.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedNumbers.Contains(plate.Substring(3, 1))
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6, 1)) && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 2
-            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
-                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            if (acceptedNumbers.Contains(plate.Substring(0, 1)) && acceptedNumbers.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedNumbers.Contains(plate.Substring(3, 1))
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(6, 1)) && acceptedChars.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 3
-            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
-                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            if (acceptedNumbers.Contains(plate.Substring(0, 1)) && acceptedNumbers.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedChars.Contains(plate.Substring(3, 1))
+                && acceptedChars.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6, 1)) && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
@@ -283,74 +283,74 @@ namespace CCSB.Controllers
                 return true;
             }
             // 5
-            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
-                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            if (acceptedChars.Contains(plate.Substring(0, 1)) && acceptedChars.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedChars.Contains(plate.Substring(3, 1))
+                && acceptedChars.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6, 1)) && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 6
-            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
-                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            if (acceptedNumbers.Contains(plate.Substring(0, 1)) && acceptedNumbers.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedChars.Contains(plate.Substring(3, 1))
+                && acceptedChars.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(6, 1)) && acceptedChars.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 7
-            if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedChars.Contains(plate.Substring(3))
-                && acceptedChars.Contains(plate.Substring(4)) && acceptedChars.Contains(plate.Substring(5))
-                && plate.Substring(6) == "-" && acceptedNumbers.Contains(plate.Substring(7)))
+            if (acceptedNumbers.Contains(plate.Substring(0, 1)) && acceptedNumbers.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedChars.Contains(plate.Substring(3, 1))
+                && acceptedChars.Contains(plate.Substring(4, 1)) && acceptedChars.Contains(plate.Substring(5, 1))
+                && plate.Substring(6, 1) == "-" && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 8
-            if (acceptedNumbers.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
-                && acceptedChars.Contains(plate.Substring(2)) && acceptedChars.Contains(plate.Substring(3))
-                && acceptedChars.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            if (acceptedNumbers.Contains(plate.Substring(0, 1)) && plate.Substring(1, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(2, 1)) && acceptedChars.Contains(plate.Substring(3, 1))
+                && acceptedChars.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(6, 1)) && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 9
-            if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
-                && plate.Substring(2) == "-" && acceptedNumbers.Contains(plate.Substring(3))
-                && acceptedNumbers.Contains(plate.Substring(4)) && acceptedNumbers.Contains(plate.Substring(5))
-                && plate.Substring(6) == "-" && acceptedChars.Contains(plate.Substring(7)))
+            if (acceptedChars.Contains(plate.Substring(0, 1)) && acceptedChars.Contains(plate.Substring(1, 1))
+                && plate.Substring(2, 1) == "-" && acceptedNumbers.Contains(plate.Substring(3, 1))
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && acceptedNumbers.Contains(plate.Substring(5, 1))
+                && plate.Substring(6, 1) == "-" && acceptedChars.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 10
-            else if (acceptedChars.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
-                && acceptedNumbers.Contains(plate.Substring(2)) && acceptedNumbers.Contains(plate.Substring(3))
-                && acceptedNumbers.Contains(plate.Substring(4)) && plate.Substring(5) == "-"
-                && acceptedChars.Contains(plate.Substring(6)) && acceptedChars.Contains(plate.Substring(7)))
+            else if (acceptedChars.Contains(plate.Substring(0, 1)) && plate.Substring(1, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(2, 1)) && acceptedNumbers.Contains(plate.Substring(3, 1))
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && plate.Substring(5, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(6, 1)) && acceptedChars.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 11
-            else if (acceptedChars.Contains(plate.Substring(0)) && acceptedChars.Contains(plate.Substring(1))
-                && acceptedChars.Contains(plate.Substring(2)) && plate.Substring(3) == "-"
-                && acceptedNumbers.Contains(plate.Substring(4)) && acceptedNumbers.Contains(plate.Substring(5))
-                && plate.Substring(6) == "-" && acceptedChars.Contains(plate.Substring(7)))
+            else if (acceptedChars.Contains(plate.Substring(0, 1)) && acceptedChars.Contains(plate.Substring(1, 1))
+                && acceptedChars.Contains(plate.Substring(2, 1)) && plate.Substring(3, 1) == "-"
+                && acceptedNumbers.Contains(plate.Substring(4, 1)) && acceptedNumbers.Contains(plate.Substring(5, 1))
+                && plate.Substring(6, 1) == "-" && acceptedChars.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 13
-            else if (acceptedNumbers.Contains(plate.Substring(0)) && plate.Substring(1) == "-"
-                && acceptedChars.Contains(plate.Substring(2)) && acceptedChars.Contains(plate.Substring(3))
-                && plate.Substring(4) == "-" && acceptedNumbers.Contains(plate.Substring(5))
-                && acceptedNumbers.Contains(plate.Substring(6)) && acceptedNumbers.Contains(plate.Substring(7)))
+            else if (acceptedNumbers.Contains(plate.Substring(0, 1)) && plate.Substring(1, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(2, 1)) && acceptedChars.Contains(plate.Substring(3, 1))
+                && plate.Substring(4, 1) == "-" && acceptedNumbers.Contains(plate.Substring(5, 1))
+                && acceptedNumbers.Contains(plate.Substring(6, 1)) && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
             // 14
-            else if (acceptedNumbers.Contains(plate.Substring(0)) && acceptedNumbers.Contains(plate.Substring(1))
-                && acceptedNumbers.Contains(plate.Substring(2)) && plate.Substring(3) == "-"
-                && acceptedChars.Contains(plate.Substring(4)) && acceptedChars.Contains(plate.Substring(5))
-                && plate.Substring(6) == "-" && acceptedNumbers.Contains(plate.Substring(7)))
+            else if (acceptedNumbers.Contains(plate.Substring(0, 1)) && acceptedNumbers.Contains(plate.Substring(1, 1))
+                && acceptedNumbers.Contains(plate.Substring(2, 1)) && plate.Substring(3, 1) == "-"
+                && acceptedChars.Contains(plate.Substring(4, 1)) && acceptedChars.Contains(plate.Substring(5, 1))
+                && plate.Substring(6, 1) == "-" && acceptedNumbers.Contains(plate.Substring(7, 1)))
             {
                 return true;
             }
