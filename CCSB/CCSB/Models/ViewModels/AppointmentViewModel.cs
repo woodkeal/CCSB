@@ -11,7 +11,7 @@ namespace CCSB.Models.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public string AppointmentDate { get; set; }
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public string UserName { get; set; }
     }
 }
