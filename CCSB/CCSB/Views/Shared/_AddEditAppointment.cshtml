@@ -17,8 +17,8 @@
                     @if (User.IsInRole(CCSB.Utility.Helper.Admin))
                     {
                         <div class="form-group">
-                            <label for="userId">Selecteer klant</label>
-                            <select id="userId"
+                            <label for="ApplicationUserId">Selecteer klant</label>
+                            <select id="ApplicationUserId"
                                     asp-items="@(new SelectList(ViewBag.UserList, "Id", "Name"))"
                                     class="form-control"></select>
                         </div>
@@ -39,4 +39,4 @@
 </div>
 @section Scripts{
     <script src=" ~ /js/script-custom-calendar.js"></script>
-    }
+}
