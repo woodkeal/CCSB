@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models
 {
-    public class CamperTicket
+    public partial class CamperReg
     {
+        // Items for ticket
         public string Pk { get; set; }
         public bool TowBar { get; set; }
+        public virtual Vehicles Kenteken { get; set; }
     }
 }

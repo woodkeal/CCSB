@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211124200006_Create Identity Tables")]
-    partial class CreateIdentityTables
+    [Migration("20211125102313_Create Identity Table")]
+    partial class CreateIdentityTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -199,6 +199,116 @@ namespace CCSB.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("CCSB.Models.ViewModels.CamperRegViewModel", b =>
+                {
+                    b.Property<string>("LicensePlate")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Airco")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("BicycleCarrier")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BuildYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KindOfVehicle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Mileage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pk")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PowereSupply")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SleepingPlaces")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TowBar")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LicensePlate");
+
+                    b.ToTable("CamperRegViewModel");
+                });
+
+            modelBuilder.Entity("CCSB.Models.ViewModels.CaravanRegViewModel", b =>
+                {
+                    b.Property<string>("LicensePlate")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Airco")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("BicycleCarrier")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BuildYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmptyWeight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HoldingTank")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("KindOfVehicle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Mileage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PowereSupply")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SleepingPlaces")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LicensePlate");
+
+                    b.ToTable("CaravanRegViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

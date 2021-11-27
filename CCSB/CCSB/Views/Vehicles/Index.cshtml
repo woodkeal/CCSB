@@ -9,9 +9,10 @@
 
 @if (User.IsInRole("Admin"))
 {
-    <p>
-        <a asp-action="Create">Voeg toe</a>
-    </p>
+<p>
+    <a asp-action="CreateCaravan">Voeg Caravan toe</a>
+    <a asp-action="CreateCamper">Voeg Camper toe</a>
+</p>
 }
 
 @using (Html.BeginForm("Index", "Vehicles", FormMethod.Get))
@@ -33,9 +34,6 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Customer.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KindOfVehicle)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PowereSupply)
@@ -61,9 +59,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KindOfVehicle)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PowereSupply)

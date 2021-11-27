@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models.ViewModels
 {
-    public class VehicleRegistrationViewModel
+    public class CamperRegViewModel
     {
+        [Key]
         public string LicensePlate { get; set; }
         public int Mileage { get; set; }
         public int Length { get; set; }
@@ -18,7 +19,7 @@ namespace CCSB.Models.ViewModels
         public string UserId { get; set; }
         public string UserName { get; set; }
 
-        // Items for ticket
+        // Extra for tickets
         public string Color { get; set; }
         public string BuildYear { get; set; }
         public string SleepingPlaces { get; set; }
@@ -26,8 +27,5 @@ namespace CCSB.Models.ViewModels
         public bool Airco { get; set; }
         public string Pk { get; set; }
         public bool TowBar { get; set; }
-        public string EmptyWeight { get; set; }
-        public bool HoldingTank { get; set; }
-
     }
 }

@@ -22,6 +22,8 @@ namespace CCSB.Models
 		public DbSet<Customer> Customer { get; set; }
 		public DbSet<Vehicles> Vehicles { get; set; }
         public DbSet<Contract> Contracts { get;  set; }
+        public DbSet<CCSB.Models.ViewModels.CaravanRegViewModel> CaravanRegViewModel { get; set; }
+        public DbSet<CCSB.Models.ViewModels.CamperRegViewModel> CamperRegViewModel { get; set; }
     }
 
 }
