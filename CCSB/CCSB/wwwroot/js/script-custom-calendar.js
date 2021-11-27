@@ -69,12 +69,12 @@ function onShowModal(obj, isEventDetail) {
         $("#title").val(obj.title);
         $("#description").val(obj.description);
         $("#appointmentDate").val(obj.appointmentDate);
-        $("#userId").val(obj.UserId);
+        $("#ApplicationUserId").val(obj.ApplicationUserId);
     }
     else {
         var appointmentdate = obj.start.getDate() + "-" + obj.start.getMonth() + "-" +
             obj.start.getFullYear() + " " + new moment().format("HH:mm")
-        $("#Id").val(0);
+        $("#Id").val(obj.id);
         $("#title").val(obj.title);
         $("#description").val(obj.description);
         $("#appointmentDate").val(appointmentdate);
@@ -93,7 +93,7 @@ function onSubmitForm() {
         Title: $("#title").val(),
         Description: $("#description").val(),
         AppointmentDate: $("#appointmentDate").val(),
-        UserId: $("#userId").val(),
+        ApplicationUserId: $("#ApplicationUserId").val(),
     }
 
     $.ajax({

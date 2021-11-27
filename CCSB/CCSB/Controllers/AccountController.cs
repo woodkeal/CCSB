@@ -124,8 +124,10 @@ namespace CCSB.Models
             return View();
         }
         
+        //function to check the zip code
         public bool checkPostalCode(string postalCodeChecked)
         {
+            //Regular expression for correct zip codes
             string strRegex = "^[1-9][0-9]{3} ?(?!sa|sd|ss)[A-Z]{2}$";
             Regex re = new Regex(strRegex);
             if (re.IsMatch(postalCodeChecked))
