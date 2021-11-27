@@ -48,7 +48,7 @@ function InitializeCalendar() {
                         },
                         error: function (xhr) {
                             $.notify("Error", "error")
-                        } 
+                        }
 
                     });
                 },
@@ -83,7 +83,7 @@ function onShowModal(obj, isEventDetail) {
 }
 
 function onCloseModal() {
-    $("#appointmentInput").modal("hide"); 
+    $("#appointmentInput").modal("hide");
 }
 
 function onSubmitForm() {
@@ -103,10 +103,10 @@ function onSubmitForm() {
         contentType: "application/json",
         success: function (response) {
             if (response.status === 1 || response.status === 2) {
-                calendar.refetchEvents(); 
+                calendar.refetchEvents();
                 $.notify(response.message, "succes");
                 onCloseModal();
-            }else {
+            } else {
                 $.notify(response.message, "error");
             }
         },
@@ -130,7 +130,7 @@ function checkValidation() {
     } else {
         $("#appointmentDate").removeClass("error");
     }
-    return isValid; 
+    return isValid;
 }
 
 function getEventDetailsByEventId(info) {
@@ -150,5 +150,5 @@ function getEventDetailsByEventId(info) {
 }
 
 function onUserChange() {
-    calendar.refetchEvents(); 
+    calendar.refetchEvents();
 }

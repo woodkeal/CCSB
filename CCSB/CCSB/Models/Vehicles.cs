@@ -34,6 +34,10 @@ namespace CCSB.Models
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string Model { get; set; } = "Camper";
 
+        [DisplayName("Soort")]
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        public string KindOfVehicle { get; set; }
+
         public string Color { get; set; }
         public int BuildYear { get; set; }
         public int SleepingPlaces { get; set; }
@@ -43,7 +47,8 @@ namespace CCSB.Models
         [DisplayName("Gebruiker")]
         public string ApplicationUserId { get; set; }
         public virtual ApplicationUser Customer { get; set; }
-        public virtual Camper Camper { get; set; }
-        public virtual Caravan Caravan { get; set; }
+
+        //public virtual CamperReg Camper { get; set; }
+        //public virtual CaravanReg Caravan { get; set; }
     }
 }

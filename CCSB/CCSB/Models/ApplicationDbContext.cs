@@ -16,14 +16,10 @@ namespace CCSB.Models
 		{
 
 		}
-
-
-        public virtual DbSet<Appointment> Appointments { get; set; }
-		public virtual DbSet<Customer> Customer { get; set; }
-		public virtual DbSet<Vehicles> Vehicles { get; set; }
-        public virtual DbSet<Contract> Contracts { get;  set; }
-		public virtual DbSet<Camper> Campers { get; set; }
-		public virtual DbSet<Caravan> Caravans { get; set; }
+		public DbSet<Appointment> Appointments { get; set; }
+		public DbSet<Customer> Customer { get; set; }
+		public DbSet<Vehicles> Vehicles { get; set; }
+		public DbSet<Contract> Contracts { get; set; }
 	}
 
 }

@@ -163,19 +163,27 @@ namespace CCSB.Migrations
                     b.Property<string>("LicensePlate")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("Airco")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("BicycleCarrier")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Brand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("BuildYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CustomerId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("KindOfVehicle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Length")
                         .HasColumnType("int");
@@ -189,6 +197,9 @@ namespace CCSB.Migrations
 
                     b.Property<bool>("PowereSupply")
                         .HasColumnType("bit");
+
+                    b.Property<string>("SleepingPlaces")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LicensePlate");
 
