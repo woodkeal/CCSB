@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models
 {
-    public class Vehicles
+    public partial class Vehicles
     {
         [Key]
         [DisplayName("Kenteken")]
@@ -39,8 +39,8 @@ namespace CCSB.Models
         public string KindOfVehicle { get; set; }
 
         public string Color { get; set; }
-        public string BuildYear { get; set; }
-        public string SleepingPlaces { get; set; }
+        public int BuildYear { get; set; }
+        public int SleepingPlaces { get; set; }
         public bool BicycleCarrier { get; set; }
         public bool Airco { get; set; }
 
