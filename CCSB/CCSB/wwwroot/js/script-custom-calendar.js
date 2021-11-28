@@ -37,7 +37,7 @@ function InitializeCalendar() {
                                 $.each(response.dataenum, function (i, data) {
                                     events.push({
                                         title: data.title,
-                                        description: data.description,
+                                        description: data.description,      //TODO: Fix appointments not being shown in the calendar
                                         start: data.appointmentDate,
                                         textColor: "black",
                                         id: data.id,
