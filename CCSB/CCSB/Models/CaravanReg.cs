@@ -12,6 +12,5 @@ namespace CCSB.Models
     //    public string EmptyWeight { get; set; }
     //    public bool HoldingTank { get; set; }
     //    public virtual Vehicles Kenteken { get; set; }
-
     //}
 }

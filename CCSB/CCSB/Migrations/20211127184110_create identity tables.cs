@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CCSB.Migrations
 {
-    public partial class CreateIdentityTables : Migration
+    public partial class createidentitytables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,58 +52,6 @@ namespace CCSB.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CamperRegViewModel",
-                columns: table => new
-                {
-                    LicensePlate = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Mileage = table.Column<int>(type: "int", nullable: false),
-                    Length = table.Column<int>(type: "int", nullable: false),
-                    PowereSupply = table.Column<bool>(type: "bit", nullable: false),
-                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Model = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KindOfVehicle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BuildYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SleepingPlaces = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BicycleCarrier = table.Column<bool>(type: "bit", nullable: false),
-                    Airco = table.Column<bool>(type: "bit", nullable: false),
-                    Pk = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TowBar = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CamperRegViewModel", x => x.LicensePlate);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CaravanRegViewModel",
-                columns: table => new
-                {
-                    LicensePlate = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Mileage = table.Column<int>(type: "int", nullable: false),
-                    Length = table.Column<int>(type: "int", nullable: false),
-                    PowereSupply = table.Column<bool>(type: "bit", nullable: false),
-                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Model = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KindOfVehicle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BuildYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SleepingPlaces = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BicycleCarrier = table.Column<bool>(type: "bit", nullable: false),
-                    Airco = table.Column<bool>(type: "bit", nullable: false),
-                    EmptyWeight = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HoldingTank = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CaravanRegViewModel", x => x.LicensePlate);
                 });
 
             migrationBuilder.CreateTable(
@@ -268,6 +216,7 @@ namespace CCSB.Migrations
                     PowereSupply = table.Column<bool>(type: "bit", nullable: false),
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KindOfVehicle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BuildYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SleepingPlaces = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -372,12 +321,6 @@ namespace CCSB.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "CamperRegViewModel");
-
-            migrationBuilder.DropTable(
-                name: "CaravanRegViewModel");
 
             migrationBuilder.DropTable(
                 name: "Contracts");
