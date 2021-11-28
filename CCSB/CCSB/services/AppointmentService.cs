@@ -56,6 +56,8 @@ namespace CCSB.Services
                     ApplicationUserId = model.ApplicationUserId,
                 };
                 //sends email to the logged in user if appointment is made.
+
+                //TODO: Fix ApplicationUserId being NULL 
                /* var email = _db.Users.FirstOrDefault(u=>u.Id == model.ApplicationUserId).Email;
                 await _emailSender.SendEmailAsync(email, "Groetjes!",
                     $"Er is een afspraak voor u ingepland!");*/
@@ -102,5 +104,7 @@ namespace CCSB.Services
                     UserName = _db.Users.Where(u => u.Id == c.ApplicationUserId).Select(u => u.FullName).FirstOrDefault(),
                 }).SingleOrDefault();
         }
+
+        //TODO: Delete, update and read appointments. CRUD
     }
 }
