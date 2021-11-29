@@ -11,30 +11,15 @@ namespace CCSB.Models
 {
     public class Contract
     {
-        [Key]
         // generate Contractid die niet veranderd kan worden alleen 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         // Random nummer voor contract
-        public int ContractId { get;set;}
+        public int ContractId { get; set;}
         // Appointmentdate van Appointment word begin datum van het contract.
-        private DateTime Appointmentdate = DateTime.Now;
-        private DateTime ContractEnd = DateTime.Now.AddYears(1);
+        public DateTime DateCreated { get; set; }
         // Appointmentdate + 1 jaar (standaard contract lengte)
-        public DateTime DatumTot {
-            get
-            {
-                return ContractEnd;
-            }
-            set
-            {
-                ContractEnd = ContractEnd.AddYears(1);
-            }
-        }
-        public DateTime DateCreated
-        {
-            get { return Appointmentdate; }
-            set { Appointmentdate = value; }    
-        }
-        public virtual Vehicles LicensePlate { get; set; }
+        public DateTime EndDate { get; set; }
+        [Key]
+        public string LicensePlate { get; set; }
     }
 }
