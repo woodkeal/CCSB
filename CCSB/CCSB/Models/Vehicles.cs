@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CCSB.Models
 {
-    public class Vehicles
+    public partial class Vehicles
     {
         [Key]
         [DisplayName("Kenteken")]
@@ -38,10 +38,14 @@ namespace CCSB.Models
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string KindOfVehicle { get; set; }
 
+        public string Color { get; set; }
+        public int BuildYear { get; set; }
+        public int SleepingPlaces { get; set; }
+        public bool BicycleCarrier { get; set; }
+        public bool Airco { get; set; }
+
         [DisplayName("Gebruiker")]
         public string ApplicationUserId { get; set; }
-        public virtual ApplicationUser Customer { get; set; }
-        public List<Contract> Contracts { get; set; }
-
+        public virtual ApplicationUser Customer { get; set; } 
     }
 }

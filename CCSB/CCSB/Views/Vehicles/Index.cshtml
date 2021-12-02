@@ -17,11 +17,12 @@
 @using (Html.BeginForm("Index", "Vehicles", FormMethod.Get))
 {
     <b> Zoek opties: </b>
-    @if (User.IsInRole("Admin")){
+    @if (User.IsInRole("Admin"))
+    {
         @Html.RadioButton("option", "Name") <label> Naam </label>
     }
     @Html.RadioButton("option", "License") <label> Kenteken </label>
-    @Html.RadioButton("option", "Length") <label> Lengte </label> 
+    @Html.RadioButton("option", "Length") <label> Lengte </label>
     @Html.TextBox("search")
     <input type="submit"
            name="submit"
